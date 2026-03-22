@@ -1,0 +1,240 @@
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --ink:    #08172a;
+  --navy:   #1a3752;
+  --teal:   #0e7fa8;
+  --teal-dk:#0b6587;
+  --teal-lt:rgba(14,127,168,.10);
+  --sage:   #3a8a62;
+  --sage-lt:rgba(58,138,98,.10);
+  --gold-lt:rgba(182,140,82,.10);
+  --bg:     #eff3f7;
+  --surface:#ffffff;
+  --text:   #1c2b3a;
+  --muted:  #546070;
+  --border: rgba(26,55,82,.09);
+  --header-h:68px;
+}
+
+html{height:100%}
+body{min-height:100%;font-family:'Raleway',sans-serif;background:var(--bg);color:var(--text);overflow:hidden}
+
+/* ── Decorative concentric rings (top-right) ── */
+body::before,body::after{content:'';position:fixed;border-radius:50%;pointer-events:none;z-index:0}
+body::before{width:68vmin;height:68vmin;top:-22vmin;right:-16vmin;border:1.5px solid rgba(14,127,168,.13)}
+body::after {width:48vmin;height:48vmin;top:-10vmin;right:-5vmin; border:1px   solid rgba(14,127,168,.07)}
+
+/* ── Ambient glow orbs ── */
+.orb{position:fixed;pointer-events:none;z-index:0;border-radius:50%}
+.orb-1{width:55vw;height:55vw;top:-25vw;right:-15vw;background:radial-gradient(circle,rgba(14,127,168,.06) 0%,transparent 65%)}
+.orb-2{width:42vw;height:42vw;bottom:-14vw;left:-12vw;background:radial-gradient(circle,rgba(58,138,98,.05) 0%,transparent 65%)}
+
+/* ── Header ── */
+.site-header{
+  position:fixed;top:0;left:0;right:0;z-index:300;
+  height:var(--header-h);
+  display:flex;align-items:center;
+  padding:0 clamp(1.5rem,5vw,4rem);
+  background:rgba(239,243,247,.93);
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+  opacity:0;animation:fadeUp .6s ease .1s forwards;
+}
+.header-logo{display:flex;align-items:center;gap:.75rem;text-decoration:none}
+.header-brand{font-size:1.08rem;letter-spacing:.05em}
+.header-brand strong{color:var(--ink);font-weight:700}
+.header-brand em{color:var(--teal);font-style:italic;font-weight:300;font-family:'Cormorant Garamond',serif;font-size:1.28rem}
+.header-badge{
+  margin-left:auto;
+  background:var(--teal-lt);
+  color:var(--teal-dk);
+  border:1px solid rgba(14,127,168,.2);
+  padding:.28rem .9rem;border-radius:99px;
+  font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+}
+
+/* ── Page grid ── */
+.page{
+  position:relative;z-index:1;
+  height:100vh;overflow:hidden;
+  max-width:1320px;margin:0 auto;
+  display:grid;
+  grid-template-columns:1fr 1.1fr;
+  align-items:center;
+  gap:clamp(2rem,4vw,5rem);
+  padding:calc(var(--header-h) + 2.5rem) clamp(2rem,6vw,5.5rem) 2.5rem;
+}
+.left-col{display:flex;flex-direction:column;align-items:flex-start}
+
+/* ── Right column ── */
+.right-col{
+  position:relative;
+  display:flex;align-items:center;justify-content:center;
+  align-self:stretch;
+}
+
+/* ── Eyebrow label ── */
+.eyebrow{
+  display:flex;align-items:center;gap:.65rem;
+  margin-bottom:1.1rem;
+  opacity:0;animation:fadeUp .7s ease .3s forwards;
+}
+.eyebrow-dot{width:7px;height:7px;border-radius:50%;background:var(--teal);flex-shrink:0}
+.eyebrow-text{font-size:.7rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--teal-dk)}
+
+/* ── Headline ── */
+.headline{text-align:left;width:100%;opacity:0;animation:fadeUp 1s ease .5s forwards;margin-bottom:.85rem}
+.headline h1{
+  font-family:'Cormorant Garamond',serif;font-weight:400;
+  font-size:clamp(3rem,4.5vw,5.2rem);
+  line-height:1.06;color:var(--ink);letter-spacing:-.03em;
+}
+.headline h1 em{color:var(--teal);font-style:italic}
+.headline h1 .word-warm{color:var(--sage);font-style:italic}
+
+/* ── Sub ── */
+.sub{
+  text-align:left;max-width:460px;
+  font-size:1.01rem;color:var(--muted);font-weight:300;line-height:1.88;
+  opacity:0;animation:fadeUp 1s ease .7s forwards;margin-bottom:1.75rem;
+}
+
+/* ── Feature cards ── */
+.cards-row{
+  display:flex;flex-wrap:wrap;gap:.6rem;
+  justify-content:flex-start;width:100%;
+  opacity:0;animation:fadeUp 1s ease .9s forwards;margin-bottom:2rem;
+}
+.pill-card{
+  display:flex;align-items:center;gap:.65rem;
+  background:var(--surface);
+  border:1px solid var(--border);border-radius:12px;
+  padding:.65rem 1.15rem;font-size:.83rem;color:var(--text);font-weight:500;
+  box-shadow:0 2px 12px rgba(8,23,42,.055);
+  transition:transform .22s,box-shadow .22s,border-color .22s;cursor:default;
+}
+.pill-card:hover{transform:translateY(-2px);box-shadow:0 8px 26px rgba(8,23,42,.10);border-color:rgba(14,127,168,.28)}
+.pill-icon{width:30px;height:30px;border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.pill-icon svg{width:14px;height:14px}
+.pi-sky  {background:var(--teal-lt)}
+.pi-green{background:var(--sage-lt)}
+.pi-sand {background:var(--gold-lt)}
+
+/* ── M-accent (mobile decoration) ── */
+.m-accent{display:none;align-items:center;gap:.55rem}
+.m-accent-dot{width:8px;height:8px;border-radius:50%;background:var(--teal);flex-shrink:0}
+.m-accent-line{height:2px;width:clamp(28px,8vw,44px);background:linear-gradient(90deg,var(--teal),var(--sage));border-radius:2px;opacity:.7}
+
+/* ── CTA ── */
+.cta-btn{
+  display:inline-flex;align-items:center;gap:.85rem;
+  background:#25D366;color:#fff;text-decoration:none;
+  font-family:'Raleway',sans-serif;font-size:.97rem;font-weight:700;
+  letter-spacing:.03em;padding:.95rem 2.2rem .95rem 1.7rem;border-radius:14px;
+  box-shadow:0 8px 28px rgba(37,211,102,.30),0 2px 6px rgba(0,0,0,.06);
+  transition:transform .22s,box-shadow .22s;
+  opacity:0;animation:fadeUp 1s ease 1.05s forwards;
+}
+.cta-btn:hover{transform:translateY(-3px);box-shadow:0 22px 52px rgba(37,211,102,.44)}
+.cta-btn svg{flex-shrink:0}
+
+/* ── Footer ── */
+.site-footer{
+  position:fixed;bottom:1rem;left:0;right:0;z-index:10;
+  text-align:center;
+  font-size:.67rem;color:rgba(26,55,82,.28);letter-spacing:.05em;
+  opacity:0;animation:fadeUp 1s ease 1.35s forwards;
+  pointer-events:none;
+}
+
+/* ── Hero illustration ── */
+.hero-illo-wrap{
+  position:relative;z-index:1;
+  width:88%;max-width:500px;
+  height:calc(100vh - var(--header-h) - 7rem);
+  border-radius:2rem;overflow:hidden;
+  /* sin overflow en img → overflow:hidden aquí recorta las esquinas; ::before vive fuera vía transform */
+  box-shadow:0 28px 72px rgba(8,23,42,.18),0 4px 16px rgba(8,23,42,.07);
+  opacity:0;animation:fadeUpFloat 1.3s cubic-bezier(.18,.82,.35,1) .35s forwards;
+}
+/* anillo decorativo desplazado — claramente intencional, no compite con la foto */
+.hero-illo-wrap::before{
+  content:'';
+  position:absolute;inset:-1px;
+  border-radius:2.15rem;
+  border:1.5px solid rgba(14,127,168,.30);
+  transform:translate(13px,13px);
+  z-index:-1;
+  pointer-events:none;
+}
+.hero-img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* ── Animations ── */
+@keyframes fadeUp     {from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)}}
+@keyframes fadeUpFloat{from{opacity:0;transform:translateY(28px)} to{opacity:1;transform:translateY(-10px)}}
+
+/* ─────────────────── MOBILE ─────────────────── */
+@media(max-width:840px){
+  :root{--header-h:56px}
+  body::before,body::after{display:none}
+  .right-col::before{display:none}
+  .eyebrow{display:none}
+  .header-badge{display:none}
+
+  html,body{height:100%;overflow:hidden}
+
+  .page{
+    grid-template-columns:1fr;
+    grid-template-rows:20vh 1fr;
+    gap:.6rem;
+    padding:calc(var(--header-h) + .75vh) 0 calc(3rem + .5vh);
+    align-items:stretch;
+    height:100vh;min-height:unset;box-sizing:border-box;
+  }
+  .left-col{
+    grid-row:2;height:100%;
+    justify-content:space-between;gap:0;
+    padding:0 5vw;
+  }
+  .right-col{
+    grid-row:1;display:flex;align-items:stretch;
+    position:static;align-self:auto;
+  }
+  .hero-illo-wrap{
+    width:100%;max-width:100%;height:100%;
+    border-radius:0;box-shadow:none;
+    opacity:0;animation:fadeUp .8s ease .2s forwards;
+  }
+  .hero-illo-wrap::before{display:none}
+  .hero-img{object-fit:cover;object-position:center 25%}
+
+  .m-accent{display:flex}
+
+  .headline{margin-bottom:0}
+  .headline h1{font-size:clamp(1.7rem,9vw,3.2rem);line-height:1.12}
+
+  .sub{max-width:100%;font-size:clamp(.84rem,3.8vw,1.1rem);line-height:1.5;margin-bottom:0}
+
+  .cards-row{
+    display:grid;grid-template-columns:1fr 1fr;
+    gap:clamp(.3rem,.6vh,.5rem);margin-bottom:0;
+  }
+  .cards-row .pill-card:last-child{grid-column:1/-1;justify-self:start}
+  .pill-card{
+    font-size:clamp(.78rem,3.2vw,.96rem);
+    padding:clamp(.35rem,.7vh,.6rem) clamp(.65rem,1.5vw,.95rem);
+    border-radius:10px;
+  }
+  .pill-icon{width:clamp(20px,3vh,28px);height:clamp(20px,3vh,28px);border-radius:8px}
+
+  .cta-btn{
+    width:100%;justify-content:center;
+    font-size:clamp(.9rem,4vw,1.2rem);
+    padding:clamp(.72rem,1.5vh,1rem) 1.5rem;
+    border-radius:12px;
+  }
+  .cta-btn svg{width:clamp(17px,2.5vh,22px);height:clamp(17px,2.5vh,22px)}
+
+  .site-footer{font-size:clamp(.52rem,1.2vw,.64rem);bottom:.6rem}
+}
