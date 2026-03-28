@@ -76,11 +76,34 @@ body::after{
   opacity:0;animation:fadeUp .6s ease .1s forwards;
 }
 .header-logo{display:flex;align-items:center;gap:.75rem;text-decoration:none}
-.header-brand{font-size:1.06rem;letter-spacing:.05em}
-.header-brand strong{color:var(--ink);font-weight:700}
+.header-brand{
+  display:flex;flex-direction:column;align-items:center;
+  gap:0;line-height:1;
+}
+.brand-name-row{
+  display:flex;align-items:baseline;gap:.15rem;
+}
+.header-brand strong{
+  font-family:'Raleway',sans-serif;
+  font-weight:800;color:var(--ink);
+  font-size:1.25rem;letter-spacing:-.01em;
+}
 .header-brand em{
-  color:var(--teal);font-style:italic;font-weight:300;
-  font-family:'Cormorant Garamond',serif;font-size:1.26rem;
+  font-family:'Alex Brush',cursive;
+  font-style:normal;font-weight:400;
+  color:#8a8a8a;font-size:1.75rem;
+  letter-spacing:.01em;
+}
+.brand-rule{
+  display:block;width:100%;height:1.5px;
+  background:linear-gradient(90deg,transparent,var(--navy) 20%,var(--navy) 80%,transparent);
+  margin:.2rem 0 .25rem;
+}
+.brand-title{
+  font-family:'Raleway',sans-serif;
+  font-weight:600;font-size:.62rem;
+  letter-spacing:.3em;text-transform:uppercase;
+  color:var(--ink);
 }
 .header-badge{
   margin-left:auto;

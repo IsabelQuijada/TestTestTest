@@ -1,0 +1,76 @@
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeUpFloat {
+  from { opacity: 0; transform: translateY(32px); }
+  to   { opacity: 1; transform: translateY(-10px); }
+}
+
+.heroIlloWrap {
+  position: relative;
+  z-index: 1;
+  width: 88%;
+  max-width: 510px;
+  height: calc(100vh - var(--header-h) - 7rem);
+  border-radius: 2.4rem;
+  overflow: hidden;
+  box-shadow:
+    0 36px 90px rgba(8, 23, 42, .22),
+    0 8px 20px rgba(8, 23, 42, .08),
+    0 0 0 1px rgba(255, 255, 255, .55);
+  opacity: 0;
+  animation: fadeUpFloat 1.4s cubic-bezier(.18, .82, .35, 1) .35s forwards;
+}
+
+.heroIlloWrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(12,132,175,.06) 0%, transparent 28%),
+    linear-gradient(0deg, rgba(7,18,36,.14) 0%, transparent 38%);
+  pointer-events: none;
+  z-index: 2;
+  border-radius: inherit;
+}
+
+.heroIlloWrap::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: 2.55rem;
+  border: 1.5px solid rgba(12, 132, 175, .24);
+  transform: translate(15px, 15px);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.heroImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform: scale(1.02);
+}
+
+@media (max-width: 840px) {
+  .heroIlloWrap {
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    border-radius: 0;
+    box-shadow: none;
+    animation: fadeUp .8s ease .2s forwards;
+  }
+
+  .heroIlloWrap::before {
+    display: none;
+  }
+
+  .heroImg {
+    object-fit: cover;
+    object-position: center 25%;
+  }
+}

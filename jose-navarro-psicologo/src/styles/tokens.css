@@ -1,0 +1,31 @@
+/* ── Design Tokens ─────────────────────────────────────────── */
+/* Importado desde global.css — nunca directamente en componentes */
+
+:root {
+  /* Colores */
+  --ink:        #071224;
+  --navy:       #173450;
+  --teal:       #0c84af;
+  --teal-dk:    #0a6889;
+  --teal-lt:    rgba(12, 132, 175, .11);
+  --teal-glow:  rgba(12, 132, 175, .26);
+  --sage:       #2c9060;
+  --sage-lt:    rgba(44, 144, 96, .11);
+  --sage-glow:  rgba(44, 144, 96, .22);
+  --gold:       #c29438;
+  --gold-lt:    rgba(194, 148, 56, .10);
+  --bg:         #eaf1f8;
+  --surface:    #ffffff;
+  --glass:      rgba(255, 255, 255, .70);
+  --text:       #1a2c3d;
+  --muted:      #4e6272;
+  --border:     rgba(22, 52, 80, .08);
+
+  /* Layout */
+  --header-h:   68px;
+
+  /* Radios de borde */
+  --radius-xl:  2rem;
+  --radius-lg:  1.2rem;
+  --radius-md:  .9rem;
+}
