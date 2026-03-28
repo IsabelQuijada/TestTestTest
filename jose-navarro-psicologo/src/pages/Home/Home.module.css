@@ -9,7 +9,7 @@
   grid-template-columns: 1fr 1.05fr;
   align-items: center;
   gap: clamp(2rem, 4vw, 5rem);
-  padding: calc(var(--header-h) + 2.5rem) clamp(2rem, 6vw, 6rem) 2.5rem;
+  padding: calc(var(--full-header-h) + 2.5rem) clamp(2rem, 6vw, 6rem) 2.5rem;
 }
 
 .rightCol {
@@ -25,7 +25,7 @@
     grid-template-columns: 1fr;
     grid-template-rows: 20vh 1fr;
     gap: .6rem;
-    padding: calc(var(--header-h) + .75vh) 0 calc(3rem + .5vh);
+    padding: calc(var(--full-header-h) + .75vh) 0 calc(3rem + .5vh);
     align-items: stretch;
     height: 100vh;
     box-sizing: border-box;

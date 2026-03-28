@@ -22,7 +22,9 @@
   --border:     rgba(22, 52, 80, .08);
 
   /* Layout */
+  --ribbon-h:   30px;
   --header-h:   68px;
+  --full-header-h: calc(var(--ribbon-h) + var(--header-h));
 
   /* Radios de borde */
   --radius-xl:  2rem;

@@ -1,0 +1,99 @@
+.ribbon {
+  width: 100%;
+  background: var(--navy);
+  color: rgba(255, 255, 255, .70);
+  font-family: 'Raleway', sans-serif;
+  font-size: .70rem;
+  font-weight: 500;
+  letter-spacing: .02em;
+  max-height: 36px;
+  overflow: hidden;
+  opacity: 1;
+  transition: max-height .35s ease, opacity .25s ease;
+}
+
+.ribbonHidden {
+  max-height: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.ribbonInner {
+  max-width: 1380px;
+  margin: 0 auto;
+  padding: .42rem clamp(1.5rem, 5vw, 4rem);
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 1rem;
+}
+
+.contactPhone {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.contactEmail {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contactItem {
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+  color: rgba(255, 255, 255, .70);
+  text-decoration: none;
+  transition: color .2s;
+}
+
+.contactItem:hover,
+.contactItem:focus-visible {
+  color: #ffffff;
+  outline: none;
+}
+
+.socialNav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: .5rem;
+}
+
+.socialLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  color: rgba(255, 255, 255, .60);
+  border: 1px solid rgba(255, 255, 255, .18);
+  transition: color .2s, border-color .2s, background .2s;
+}
+
+.socialLink:hover,
+.socialLink:focus-visible {
+  color: #fff;
+  border-color: rgba(255, 255, 255, .55);
+  background: rgba(255, 255, 255, .10);
+  outline: none;
+}
+
+@media (max-width: 600px) {
+  .ribbonInner {
+    grid-template-columns: 1fr 1fr;
+    padding: .35rem 1rem;
+    gap: .5rem;
+  }
+
+  .socialNav {
+    display: none;
+  }
+
+  .contactEmail {
+    justify-content: flex-end;
+  }
+}

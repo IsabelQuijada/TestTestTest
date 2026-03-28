@@ -10,7 +10,7 @@ export function Home() {
   return (
     <>
       <OrbsBackground />
-      <Header badgeText="Próximamente" />
+      <Header />
 
       <div className={styles.page}>
         <HeroSection />
