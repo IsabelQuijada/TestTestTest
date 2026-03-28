@@ -40,7 +40,7 @@ export function Home() {
         </div>
       </div>
 
-      <Footer year={2026} licenseNumber="12831580" />
+      <Footer />
 
       {/* Sticky WhatsApp CTA */}
       <div className={styles.stickyWa}>
