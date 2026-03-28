@@ -1,0 +1,135 @@
+/* ── HeroRibbon ───────────────────────────────────────────── */
+
+.ribbon {
+  position: relative;
+  width: 100%;
+  height: 10vh;
+  min-height: 64px;
+  max-height: 96px;
+  background: linear-gradient(
+    135deg,
+    #0e2843 0%,
+    var(--navy) 60%,
+    #12304e 100%
+  );
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  z-index: 2;
+  box-shadow:
+    0 6px 32px rgba(7, 18, 36, 0.30),
+    0 2px 8px rgba(7, 18, 36, 0.18);
+}
+
+
+
+/* Resplandor decorativo de fondo */
+.ribbon::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 50% 120% at 15% 50%, rgba(12,132,175,.07) 0%, transparent 65%),
+    radial-gradient(ellipse 40% 120% at 85% 50%, rgba(44,144,96,.06) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+/* ── Contenido interior ── */
+.inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1380px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 clamp(2rem, 6vw, 6rem);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(1rem, 3vw, 3rem);
+}
+
+/* ── Tagline ── */
+.tagline {
+  font-family: 'Raleway', sans-serif;
+  font-size: clamp(.8rem, 1.1vw, 1rem);
+  font-weight: 400;
+  color: rgba(255, 255, 255, .68);
+  letter-spacing: .025em;
+  line-height: 1.4;
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ── Grupo de botones ── */
+.actions {
+  display: flex;
+  align-items: center;
+  gap: .9rem;
+  flex-shrink: 0;
+}
+
+/* ── Botón primario (teal elegante) ── */
+.btnPrimary {
+  display: inline-flex;
+  align-items: center;
+  gap: .55rem;
+  background: linear-gradient(135deg, #1499c7 0%, var(--teal) 55%, var(--teal-dk) 100%);
+  color: #fff;
+  text-decoration: none;
+  font-family: 'Raleway', sans-serif;
+  font-size: clamp(.78rem, .95vw, .92rem);
+  font-weight: 700;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  padding: .52rem 1.5rem;
+  border-radius: var(--radius-md);
+  box-shadow:
+    0 4px 20px rgba(12, 132, 175, .40),
+    0 1px 4px rgba(0, 0, 0, .12);
+  transition:
+    transform .22s cubic-bezier(.2, .8, .2, 1),
+    box-shadow .22s cubic-bezier(.2, .8, .2, 1);
+  white-space: nowrap;
+}
+
+.btnPrimary svg {
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+}
+
+.btnPrimary:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 10px 30px rgba(12, 132, 175, .55),
+    0 2px 8px rgba(0, 0, 0, .14);
+}
+
+.btnPrimary:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 3px;
+}
+
+/* ── Mobile ── */
+@media (max-width: 840px) {
+  .ribbon {
+    height: auto;
+    min-height: 10vh;
+    max-height: none;
+    padding: .9rem 0;
+  }
+
+  .tagline {
+    display: none;
+  }
+
+  .actions {
+    display: none;
+  }
+
+  .inner {
+    justify-content: center;
+  }
+}

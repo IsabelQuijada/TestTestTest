@@ -1,57 +1,29 @@
-import { BenefitCard } from '../BenefitCard/BenefitCard'
-import { CTAButton } from '../CTAButton/CTAButton'
-import { HeartIcon } from '../icons/HeartIcon'
-import { ShieldIcon } from '../icons/ShieldIcon'
-import { ClockIcon } from '../icons/ClockIcon'
-import type { BenefitItem } from '../../types'
+import { CTAButton } from './CTAButton/CTAButton'
 import styles from './HeroSection.module.css'
-
-const BENEFITS: BenefitItem[] = [
-  { icon: <HeartIcon />,  label: 'Atención personalizada',        variant: 'sky' },
-  { icon: <ShieldIcon />, label: 'Espacio seguro y confidencial', variant: 'green' },
-  { icon: <ClockIcon />,  label: 'A tu ritmo, sin presión',       variant: 'sand' },
-]
 
 export function HeroSection() {
   return (
     <div className={styles.heroContent}>
 
-      {/* Acento decorativo — solo visible en mobile */}
-      <div className={styles.mAccent} aria-hidden="true">
-        <span className={styles.mAccentDot} />
-        <span className={styles.mAccentLine} />
-      </div>
-
-      {/* Eyebrow */}
-      <div className={styles.eyebrow} aria-hidden="true">
-        <span className={styles.eyebrowDot} />
-        <span className={styles.eyebrowText}>Próximamente · 2026</span>
-      </div>
-
       {/* Headline principal */}
       <div className={styles.headline}>
         <h1>
-          Un lugar <em>seguro</em>
-          <br />
-          está <span className={styles.wordWarm}>naciendo</span> para&nbsp;ti.
+          Tu bienestar <em>mental</em><br />
+          es nuestra <span className={styles.wordWarm}>prioridad.</span>
         </h1>
       </div>
 
       {/* Subtítulo */}
       <p className={styles.sub}>
-        Nuestro sitio está en construcción. Estamos preparando algo especial para ti.
-        Mientras tanto, puedes escribirnos para reservar tu lugar o resolver cualquier duda.
+        Ofrecemos acompañamiento psicológico profesional adaptado
+        a tus necesidades. Trabajamos contigo para desarrollar
+        herramientas que mejoren tu calidad de vida.
       </p>
 
-      {/* Tarjetas de beneficio */}
-      <div className={styles.cardsRow}>
-        {BENEFITS.map(({ icon, label, variant }) => (
-          <BenefitCard key={label} icon={icon} label={label} variant={variant} />
-        ))}
+      {/* CTA principal */}
+      <div className={styles.ctaWrap}>
+        <CTAButton>Agenda tu consulta</CTAButton>
       </div>
-
-      {/* CTA de WhatsApp */}
-      <CTAButton />
 
     </div>
   )

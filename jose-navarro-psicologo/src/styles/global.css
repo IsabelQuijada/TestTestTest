@@ -25,7 +25,6 @@ body {
   min-height: 100%;
   font-family: 'Raleway', sans-serif;
   color: var(--text);
-  overflow: hidden;
   background:
     radial-gradient(ellipse 80% 55% at 12% 110%, rgba(44,144,96,.09) 0%, transparent 62%),
     radial-gradient(ellipse 60% 45% at 88% -8%, rgba(12,132,175,.11) 0%, transparent 58%),
@@ -59,8 +58,7 @@ body::after {
 @media (max-width: 840px) {
   html,
   body {
-    height: 100%;
-    overflow: hidden;
+    height: auto;
   }
 
   body::before,

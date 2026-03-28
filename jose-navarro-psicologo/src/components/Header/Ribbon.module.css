@@ -23,7 +23,7 @@
   margin: 0 auto;
   padding: .42rem clamp(1.5rem, 5vw, 4rem);
   display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  grid-template-columns: 1fr auto;
   align-items: center;
   gap: 1rem;
 }
@@ -32,12 +32,6 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
-}
-
-.contactEmail {
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .contactItem {
@@ -84,16 +78,12 @@
 
 @media (max-width: 600px) {
   .ribbonInner {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr auto;
     padding: .35rem 1rem;
     gap: .5rem;
   }
 
   .socialNav {
     display: none;
-  }
-
-  .contactEmail {
-    justify-content: flex-end;
   }
 }
