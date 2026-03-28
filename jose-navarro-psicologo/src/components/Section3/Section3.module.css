@@ -1,12 +1,177 @@
+/* ── Section3 — Cómo empezamos ─────────────────────────── */
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(22px); }
+  from { opacity: 0; transform: translateY(28px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
-.heroContent {
+.section {
+  width: 100%;
+  min-height: 90vh;
+  padding: 5rem clamp(1.5rem, 6vw, 6rem) 4rem;
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+/* ── Header ── */
+.header {
+  text-align: center;
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto 3.5rem;
+  opacity: 0;
+  overflow: visible;
+  animation: fadeUp .7s ease .1s forwards;
+}
+
+.title {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  line-height: 1.2;
+  color: var(--ink);
+  letter-spacing: -.025em;
+  margin-bottom: .9rem;
+  overflow: visible;
+  padding-bottom: .15em;
+}
+
+.title em {
+  font-style: italic;
+  background: linear-gradient(135deg, var(--teal) 20%, #34c4ec 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.subtitle {
+  font-size: .95rem;
+  color: var(--muted);
+  line-height: 1.8;
+  font-weight: 300;
+}
+
+/* ── Steps grid ── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+  max-width: 1380px;
+  margin: 0 auto 3rem;
+}
+
+/* ── Card ── */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem 1.4rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+  box-shadow:
+    0 2px 12px rgba(8, 23, 42, .05),
+    0 1px 3px rgba(8, 23, 42, .04);
+  transition: transform .22s ease, box-shadow .22s ease;
+  opacity: 0;
+  animation: fadeUp .7s ease calc(.15s * var(--i, 1)) forwards;
+}
+
+.card:nth-child(1) { --i: 1; }
+.card:nth-child(2) { --i: 2; }
+.card:nth-child(3) { --i: 3; }
+.card:nth-child(4) { --i: 4; }
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow:
+    0 8px 32px rgba(8, 23, 42, .10),
+    0 2px 8px rgba(8, 23, 42, .06);
+}
+
+/* ── Step number ── */
+.stepNumber {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.8rem;
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -.04em;
+}
+
+.card.teal .stepNumber { color: var(--teal-glow); }
+.card.sage  .stepNumber { color: var(--sage-glow); }
+.card.gold  .stepNumber { color: var(--gold-lt); }
+
+/* ── Card text ── */
+.cardTitle {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  font-size: .92rem;
+  line-height: 1.3;
+  letter-spacing: -.01em;
+}
+
+.card.teal .cardTitle { color: var(--teal-dk); }
+.card.sage  .cardTitle { color: var(--sage); }
+.card.gold  .cardTitle { color: var(--gold); }
+
+.cardDesc {
+  font-size: .82rem;
+  color: var(--muted);
+  line-height: 1.75;
+  font-weight: 300;
+}
+
+/* ── CTA ── */
+.cta {
+  display: flex;
+  justify-content: center;
+  opacity: 0;
+  animation: fadeUp .7s ease .75s forwards;
+}
+
+.ctaBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+  padding: .85rem 2rem;
+  background: var(--teal);
+  color: #fff;
+  font-family: 'Raleway', sans-serif;
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  transition: background .2s ease, transform .18s ease;
+}
+
+.ctaBtn:hover,
+.ctaBtn:focus-visible {
+  background: var(--teal-dk);
+  transform: translateY(-2px);
+  outline: none;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 520px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section {
+    padding: 3.5rem clamp(1rem, 4vw, 2rem) 3rem;
+  }
 }
 
 /* ── Eyebrow ── */

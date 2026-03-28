@@ -5,7 +5,6 @@ import { HeroSection } from '../../components/HeroSection/HeroSection'
 import { HeroRibbon } from '../../components/HeroRibbon/HeroRibbon'
 import { Section2 } from '../../components/Section2/Section2'
 import { Section3 } from '../../components/Section3/Section3'
-import { HeroImage } from '../../components/HeroSection/HeroImage/HeroImage'
 import { CTAButton } from '../../components/HeroSection/CTAButton/CTAButton'
 import { Footer } from '../../components/Footer/Footer'
 import styles from './Home.module.css'
@@ -26,19 +25,9 @@ export function Home() {
 
       <HeroRibbon />
 
-      <div className={styles.page}>
-        <Section2 />
-        <div className={styles.rightCol}>
-          <HeroImage src={heroImage} alt="Ilustración de servicios de psicología" />
-        </div>
-      </div>
+      <Section2 />
 
-      <div className={styles.page}>
-        <Section3 />
-        <div className={styles.rightCol}>
-          <HeroImage src={heroImage} alt="Ilustración de contacto y reserva" />
-        </div>
-      </div>
+      <Section3 />
 
       <Footer />
 
