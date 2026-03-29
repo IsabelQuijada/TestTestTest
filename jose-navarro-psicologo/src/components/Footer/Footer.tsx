@@ -1,6 +1,6 @@
 import logo from '../../assets/logo.png'
 import styles from './Footer.module.css'
-import { WA_URL, PHONE_DISPLAY, PHONE_TEL } from '../../constants/contact'
+import { PHONE_DISPLAY, PHONE_TEL } from '../../constants/contact'
 
 function LocationIcon() {
   return (
