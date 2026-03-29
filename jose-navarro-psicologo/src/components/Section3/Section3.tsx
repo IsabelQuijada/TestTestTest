@@ -1,71 +1,140 @@
+import joseNavarro from '../../assets/JoseNavarro.jpeg'
 import styles from './Section3.module.css'
 
 const WA_URL =
   'https://wa.me/523313833562?text=Hola%2C%20me%20gustar%C3%ADa%20agendar%20una%20consulta.'
 
+const VALUES = [
+  {
+    title: 'Empatía real',
+    desc: 'Escucho sin juzgar, desde un espacio de comprensión genuina y sin prisa.',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+      </svg>
+    ),
+    color: 'teal',
+  },
+  {
+    title: 'Total confidencialidad',
+    desc: 'Tu privacidad es sagrada. Todo lo que compartas queda entre nosotros.',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+      </svg>
+    ),
+    color: 'sage',
+  },
+  {
+    title: 'Enfoque científico',
+    desc: 'Trabajo con metodologías avaladas por la evidencia, adaptadas a tu realidad.',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="10" />
+        <line x1="2" y1="12" x2="22" y2="12" />
+        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+      </svg>
+    ),
+    color: 'gold',
+  },
+]
+
 const STEPS = [
-  {
-    number: '01',
-    label: 'Escríbeme',
-    desc: 'Envíame un mensaje por WhatsApp o rellena el formulario de contacto. Respóndo en menos de 24 horas.',
-    variant: 'teal',
-  },
-  {
-    number: '02',
-    label: 'Primera consulta',
-    desc: 'Realizamos una sesión inicial gratuita para conocernos, entender tu situación y definir el plan de trabajo.',
-    variant: 'sage',
-  },
-  {
-    number: '03',
-    label: 'Plan personalizado',
-    desc: 'Diseñamos juntos un proceso terapéutico adaptado a tus necesidades, ritmo y objetivos concretos.',
-    variant: 'teal',
-  },
-  {
-    number: '04',
-    label: 'Seguimiento continuo',
-    desc: 'Acompañamiento sesión a sesión con evaluación constante del progreso y ajuste del enfoque si es necesario.',
-    variant: 'gold',
-  },
+  { number: '01', label: 'Escríbeme', desc: 'Un mensaje es suficiente para empezar. Respondo en menos de 24 h.' },
+  { number: '02', label: 'Primera sesión', desc: 'Nos conocemos, entiendo tu situación y trazamos el camino juntos.' },
+  { number: '03', label: 'Plan personalizado', desc: 'Un proceso terapéutico diseñado a tu medida y a tu ritmo.' },
+  { number: '04', label: 'Avanzamos juntos', desc: 'Seguimiento continuo con ajustes según tu progreso real.' },
 ]
 
 export function Section3() {
   return (
-    <section className={styles.section} aria-labelledby="process-heading">
-      <div className={styles.header}>
-        <h2 id="process-heading" className={styles.title}>
-          ¿Cómo <em>empezamos?</em>
-        </h2>
-        <p className={styles.subtitle}>
-          Dar el primer paso es lo más importante.
-          El resto lo hacemos juntos, a tu ritmo.
-        </p>
-      </div>
+    <section className={styles.section} aria-labelledby="about-heading">
 
-      <div className={styles.grid}>
-        {STEPS.map(({ number, label, desc, variant }) => (
-          <article key={label} className={`${styles.card} ${styles[variant]}`}>
-            <span className={styles.stepNumber} aria-hidden="true">{number}</span>
-            <h3 className={styles.cardTitle}>{label}</h3>
-            <p className={styles.cardDesc}>{desc}</p>
-          </article>
-        ))}
-      </div>
+      {/* ── Background orbs ── */}
+      <div className={styles.orbA} aria-hidden="true" />
+      <div className={styles.orbB} aria-hidden="true" />
 
-      <div className={styles.cta}>
-        <a
-          href={WA_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={styles.ctaBtn}
-          aria-label="Reservar primera consulta por WhatsApp"
-        >
-          Reservar primera consulta
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-          </svg>
-        </a>
+      <div className={styles.layout}>
+
+        {/* ── LEFT: Photo + badge + quote ── */}
+        <div className={styles.photoCol}>
+          <div className={styles.photoFrame}>
+            <img
+              src={joseNavarro}
+              alt="José Navarro, Psicólogo Clínico"
+              className={styles.photo}
+              loading="lazy"
+            />
+            <div className={styles.photoBadge} aria-label="Más de 5 años de experiencia">
+              <span className={styles.badgeNumber}>+5</span>
+              <span className={styles.badgeLabel}>años de<br />experiencia</span>
+            </div>
+          </div>
+
+          <div className={styles.photoMeta}>
+            <p className={styles.photoName}>José Navarro</p>
+            <p className={styles.photoCredential}>Psicólogo Clínico</p>
+          </div>
+
+          <blockquote className={styles.quote}>
+            "Acompañarte en tu proceso de cambio no es solo mi trabajo — es mi vocación."
+          </blockquote>
+        </div>
+
+        {/* ── RIGHT: Bio + values + steps + CTA ── */}
+        <div className={styles.contentCol}>
+
+          <h2 id="about-heading" className={styles.title}>
+            Un enfoque <em>humano</em> y científico
+          </h2>
+
+          <p className={styles.bio}>
+            Soy psicólogo clínico especializado en terapia cognitivo-conductual. Trabajo con personas
+            que atraviesan momentos difíciles —ansiedad, duelo, estrés, crisis vitales— y quieren
+            retomar el control de su bienestar emocional. Mi consulta es un espacio seguro, sin
+            juicios, donde el cambio real es posible.
+          </p>
+
+          {/* Values */}
+          <div className={styles.values}>
+            {VALUES.map(({ title, desc, icon, color }) => (
+              <div key={title} className={`${styles.valueCard} ${styles[`value_${color}`]}`}>
+                <div className={styles.valueIcon}>{icon}</div>
+                <div>
+                  <p className={styles.valueTitle}>{title}</p>
+                  <p className={styles.valueDesc}>{desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Steps */}
+          <div className={styles.processBlock}>
+            <p className={styles.processLabel}>¿Cómo empezamos?</p>
+            <div className={styles.steps}>
+              {STEPS.map(({ number, label, desc }) => (
+                <div key={number} className={styles.step}>
+                  <span className={styles.stepNum}>{number}</span>
+                  <div>
+                    <p className={styles.stepLabel}>{label}</p>
+                    <p className={styles.stepDesc}>{desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* CTA */}
+          <a
+            href={WA_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.ctaBtn}
+            aria-label="Reservar tu consulta por WhatsApp"
+          >
+            Reserva tu consulta
+          </a>
+        </div>
       </div>
     </section>
   )

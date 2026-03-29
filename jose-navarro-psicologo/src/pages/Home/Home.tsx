@@ -27,6 +27,12 @@ export function Home() {
 
       <Section2 />
 
+      <div className={styles.waveDivider} aria-hidden="true">
+        <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0,48 C180,72 360,24 540,48 C720,72 900,24 1080,48 C1260,72 1380,36 1440,48 L1440,80 L0,80 Z" fill="#eaf1f8" />
+        </svg>
+      </div>
+
       <Section3 />
 
       <Footer />
