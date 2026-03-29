@@ -1,9 +1,7 @@
 import type { ReactNode } from 'react'
 import { WhatsAppIcon } from '../icons/WhatsAppIcon'
 import styles from './CTAButton.module.css'
-
-const WHATSAPP_URL =
-  'https://wa.me/523313833562?text=Hola%2C%20me%20gustar%C3%ADa%20agendar%20una%20consulta.'
+import { WA_URL as WHATSAPP_URL } from '../../../constants/contact'
 
 interface CTAButtonProps {
   href?: string

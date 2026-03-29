@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import styles from './NavMenu.module.css'
+import { WA_URL } from '../../constants/contact'
 
 export interface NavItem {
   label: string
@@ -7,13 +8,13 @@ export interface NavItem {
 }
 
 const NAV_ITEMS: NavItem[] = [
-  { label: 'Inicio',          href: '#' },
+  { label: 'Inicio',          href: '/' },
   { label: 'Servicios',       href: '#servicios' },
   { label: 'Acerca de mí',    href: '#sobre-mi' },
   { label: 'Contacto',        href: '#contacto' },
 ]
 
-const CTA_URL = 'https://wa.me/523313833562?text=Hola%2C%20me%20gustar%C3%ADa%20agendar%20una%20consulta.'
+const CTA_URL = WA_URL
 
 export function NavMenu() {
   const [open, setOpen] = useState(false)

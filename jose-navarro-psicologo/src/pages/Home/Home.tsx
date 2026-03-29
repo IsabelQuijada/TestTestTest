@@ -16,7 +16,7 @@ export function Home() {
       <Header />
 
       <section className={styles.heroPage}>
-        <img src={heroImage} alt="José Navarro Psicólogo" className={styles.heroBg} />
+        <img src={heroImage} alt="José Navarro Psícólogo" className={styles.heroBg} fetchPriority="high" />
         <div className={styles.heroOverlay} aria-hidden="true" />
         <div className={styles.heroTextWrap}>
           <HeroSection />

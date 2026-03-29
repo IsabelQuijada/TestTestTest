@@ -1,8 +1,6 @@
 import joseNavarro from '../../assets/JoseNavarro.jpeg'
 import styles from './Section3.module.css'
-
-const WA_URL =
-  'https://wa.me/523313833562?text=Hola%2C%20me%20gustar%C3%ADa%20agendar%20una%20consulta.'
+import { WA_URL } from '../../constants/contact'
 
 const STEPS = [
   { number: '01', label: 'Escríbeme',          desc: 'Un mensaje es suficiente para empezar. Respondo en menos de 24 h.' },
@@ -93,7 +91,7 @@ const THERAPIES = [
 
 export function Section3() {
   return (
-    <section className={styles.section} aria-labelledby="about-heading">
+    <section id="sobre-mi" className={styles.section} aria-labelledby="about-heading">
 
       {/* ── Background orbs ── */}
       <div className={styles.orbA} aria-hidden="true" />

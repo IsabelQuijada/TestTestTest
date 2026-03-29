@@ -1,4 +1,5 @@
 import styles from './HeroRibbon.module.css'
+import { WA_URL } from '../../constants/contact'
 
 export function HeroRibbon() {
   return (
@@ -9,7 +10,7 @@ export function HeroRibbon() {
         </p>
         <div className={styles.actions}>
           <a
-            href="https://wa.me/523313833562?text=Hola%2C%20me%20gustar%C3%ADa%20agendar%20una%20consulta."
+            href={WA_URL}
             target="_blank"
             rel="noopener noreferrer"
             className={styles.btnPrimary}

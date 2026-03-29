@@ -48,9 +48,10 @@
   color: #fff;
   text-decoration: none;
   font-family: 'Raleway', sans-serif;
-  font-size: .85rem;
+  font-size: .82rem;
   font-weight: 700;
-  letter-spacing: .04em;
+  letter-spacing: .07em;
+  text-transform: uppercase;
   padding: .6rem 1.4rem;
   border-radius: .5rem;
   white-space: nowrap;
@@ -156,9 +157,10 @@
   background: var(--navy);
   color: #fff;
   font-family: 'Raleway', sans-serif;
-  font-size: .88rem;
+  font-size: .82rem;
   font-weight: 700;
-  letter-spacing: .04em;
+  letter-spacing: .07em;
+  text-transform: uppercase;
   text-align: center;
   text-decoration: none;
   border-radius: .5rem;

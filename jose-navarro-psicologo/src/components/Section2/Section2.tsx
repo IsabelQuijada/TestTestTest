@@ -1,8 +1,6 @@
 import React, { useRef } from 'react'
 import styles from './Section2.module.css'
-
-const WA_URL =
-  'https://wa.me/523313833562?text=Hola%2C%20me%20gustar%C3%ADa%20agendar%20una%20consulta.'
+import { WA_URL } from '../../constants/contact'
 
 /* ── Head silhouette SVG icons ── */
 function IconDuelo() {
@@ -127,7 +125,7 @@ export function Section2() {
   }
 
   return (
-    <section className={styles.section} aria-labelledby="services-heading">
+    <section id="servicios" className={styles.section} aria-labelledby="services-heading">
       {/* Decorative background shapes */}
       <div className={styles.dots} aria-hidden="true" />
       <div className={styles.decoRing} aria-hidden="true" />

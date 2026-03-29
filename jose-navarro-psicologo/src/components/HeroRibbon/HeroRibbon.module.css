@@ -116,20 +116,33 @@
 @media (max-width: 840px) {
   .ribbon {
     height: auto;
-    min-height: 10vh;
+    min-height: 52px;
     max-height: none;
-    padding: .9rem 0;
-  }
-
-  .tagline {
-    display: none;
-  }
-
-  .actions {
-    display: none;
+    padding: .85rem 0;
   }
 
   .inner {
+    flex-direction: column;
+    align-items: center;
+    gap: .7rem;
+    padding: 0 1.25rem;
+    text-align: center;
+  }
+
+  .tagline {
+    white-space: normal;
+    overflow: visible;
+    text-overflow: unset;
+    font-size: .8rem;
+    flex: none;
+  }
+
+  .actions {
     justify-content: center;
+  }
+
+  .btnPrimary {
+    font-size: .78rem;
+    padding: .5rem 1.4rem;
   }
 }

@@ -1,4 +1,5 @@
 import styles from './Ribbon.module.css'
+import { PHONE_DISPLAY, PHONE_TEL } from '../../constants/contact'
 
 function PhoneIcon() {
   return (
@@ -17,9 +18,9 @@ export function Ribbon({ hidden = false }: { hidden?: boolean }) {
       aria-hidden={hidden}
     >
       <div className={styles.ribbonInner}>
-        <a href="tel:+523313833562" className={styles.contactItem} aria-label="Llamar al teléfono">
+        <a href={`tel:${PHONE_TEL}`} className={styles.contactItem} aria-label="Llamar al teléfono">
           <PhoneIcon />
-          <span>+52 33 1383 3562</span>
+          <span>{PHONE_DISPLAY}</span>
         </a>
       </div>
     </div>

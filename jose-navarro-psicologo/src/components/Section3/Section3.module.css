@@ -262,7 +262,7 @@
 /* Bio */
 .bio {
   font-family: 'Raleway', sans-serif;
-  font-size: .92rem;
+  font-size: 1rem;
   line-height: 1.85;
   color: rgba(255, 255, 255, .80);
   font-weight: 400;
@@ -296,7 +296,7 @@
 
 .therapySubtitle {
   font-family: 'Raleway', sans-serif;
-  font-size: .84rem;
+  font-size: 1rem;
   color: rgba(255, 255, 255, .70);
   line-height: 1.65;
   font-weight: 400;
@@ -377,7 +377,7 @@
 
 .featuredDesc {
   font-family: 'Raleway', sans-serif;
-  font-size: .85rem;
+  font-size: 1rem;
   font-weight: 400;
   color: rgba(255, 255, 255, .82);
   line-height: 1.75;
@@ -471,7 +471,7 @@
 .cardTitle {
   font-family: 'Raleway', sans-serif;
   font-weight: 700;
-  font-size: .88rem;
+  font-size: 1.05rem;
   color: #ffffff;
   letter-spacing: -.01em;
   margin: 0;
@@ -479,7 +479,7 @@
 
 .cardDesc {
   font-family: 'Raleway', sans-serif;
-  font-size: .76rem;
+  font-size: .92rem;
   font-weight: 400;
   color: rgba(255, 255, 255, .72);
   line-height: 1.65;
@@ -527,7 +527,7 @@
 
 .stepLabel {
   font-family: 'Raleway', sans-serif;
-  font-size: .8rem;
+  font-size: .9rem;
   font-weight: 700;
   color: #ffffff;
   margin: 0 0 .2rem;
@@ -536,7 +536,7 @@
 
 .stepDesc {
   font-family: 'Raleway', sans-serif;
-  font-size: .75rem;
+  font-size: .88rem;
   font-weight: 300;
   color: rgba(255, 255, 255, .42);
   line-height: 1.6;
@@ -650,8 +650,9 @@
   align-items: center;
   font-family: 'Raleway', sans-serif;
   font-size: 1rem;
-  font-weight: 600;
-  letter-spacing: .06em;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
   color: #ffffff;
   background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dk) 100%);
   padding: 1rem 3rem;
@@ -762,6 +763,10 @@
 
   .featuredContent {
     align-items: center;
+  }
+
+  .featuredDesc {
+    display: none;
   }
 
   .featuredBtn {

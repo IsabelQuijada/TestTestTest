@@ -1,45 +1,3 @@
-.page {
-  position: relative;
-  z-index: 1;
-  max-width: 1380px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1.05fr;
-  align-items: center;
-  gap: clamp(2rem, 4vw, 5rem);
-  padding: 2.5rem clamp(2rem, 6vw, 6rem);
-}
-
-.rightCol {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  align-self: stretch;
-}
-
-@media (max-width: 840px) {
-  .page {
-    grid-template-columns: 1fr;
-    grid-template-rows: 20vh 1fr;
-    gap: .6rem;
-    padding: .75vh 0 calc(3rem + .5vh);
-    align-items: stretch;
-    height: 100vh;
-    box-sizing: border-box;
-  }
-
-  .pageFirst {
-    padding-top: calc(var(--full-header-h) + .75vh);
-  }
-
-  .rightCol {
-    grid-row: 1;
-    display: flex;
-    align-items: stretch;
-  }
-}
-
 /* ── Full-width Hero ───────────────────────────────────────── */
 .heroPage {
   position: relative;
@@ -105,7 +63,7 @@
   margin-left: clamp(2.5rem, 6vw, 8rem);
 }
 
-/* ── Wave: StepsRibbon → Footer ─────────────────────────────── */
+/* ── Wave: Section3 → Footer ─────────────────────────────────── */
 .waveFooter {
   position: relative;
   width: 100%;
