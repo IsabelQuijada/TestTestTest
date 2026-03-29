@@ -22,10 +22,9 @@
   max-width: 1380px;
   margin: 0 auto;
   padding: .42rem clamp(1.5rem, 5vw, 4rem);
-  display: grid;
-  grid-template-columns: 1fr auto;
+  display: flex;
   align-items: center;
-  gap: 1rem;
+  justify-content: center;
 }
 
 .contactPhone {
