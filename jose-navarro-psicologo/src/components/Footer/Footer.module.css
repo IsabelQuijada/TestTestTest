@@ -16,19 +16,26 @@
   margin: 0 auto;
   padding: 2rem clamp(1.5rem, 5vw, 4rem) 1.75rem;
   display: grid;
-  grid-template-columns: auto 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   align-items: start;
   gap: 1.5rem 3.5rem;
   border-bottom: 1px solid rgba(255, 255, 255, .07);
 }
 
 /* ── Brand logo ── */
+.brandCol {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .6rem;
+  align-self: center;
+}
+
 .brandLogo {
   display: inline-flex;
   align-items: center;
   gap: .65rem;
   text-decoration: none;
-  align-self: center;
 }
 
 .logoImg {
@@ -131,6 +138,24 @@
   line-height: 1.5;
 }
 
+.contactItem {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  color: rgba(255, 255, 255, .3);
+}
+
+.cedula {
+  font-size: .7rem;
+  color: rgba(255, 255, 255, .35);
+  letter-spacing: .05em;
+  text-align: center;
+}
+
+.hideOnMobile {
+  /* visible on desktop, hidden on mobile via media query */
+}
+
 /* ── Bottom bar ── */
 .bottom {
   max-width: 1380px;
@@ -138,7 +163,7 @@
   padding: 1rem clamp(1.5rem, 5vw, 4rem);
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   gap: 1rem;
   flex-wrap: wrap;
 }
@@ -154,6 +179,7 @@
   display: flex;
   align-items: center;
   gap: .5rem;
+  margin-top: 1rem;
 }
 
 .socialLink {
@@ -188,7 +214,7 @@
     grid-template-columns: 1fr 1fr 1fr;
   }
 
-  .brandLogo {
+  .brandCol {
     grid-column: 1 / -1;
   }
 }
@@ -199,8 +225,15 @@
     gap: 1.5rem 2rem;
   }
 
-  .brandLogo {
+  .brandCol {
     grid-column: 1 / -1;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .hideOnMobile {
+    display: none;
   }
 
   .bottom {
