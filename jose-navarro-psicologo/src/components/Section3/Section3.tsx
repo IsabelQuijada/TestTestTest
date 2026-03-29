@@ -4,46 +4,91 @@ import styles from './Section3.module.css'
 const WA_URL =
   'https://wa.me/523313833562?text=Hola%2C%20me%20gustar%C3%ADa%20agendar%20una%20consulta.'
 
-const VALUES = [
-  {
-    title: 'Empatía real',
-    desc: 'Escucho sin juzgar, desde un espacio de comprensión genuina y sin prisa.',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
-      </svg>
-    ),
-    color: 'teal',
-  },
-  {
-    title: 'Total confidencialidad',
-    desc: 'Tu privacidad es sagrada. Todo lo que compartas queda entre nosotros.',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-      </svg>
-    ),
-    color: 'sage',
-  },
-  {
-    title: 'Enfoque científico',
-    desc: 'Trabajo con metodologías avaladas por la evidencia, adaptadas a tu realidad.',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <circle cx="12" cy="12" r="10" />
-        <line x1="2" y1="12" x2="22" y2="12" />
-        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-      </svg>
-    ),
-    color: 'gold',
-  },
+const STEPS = [
+  { number: '01', label: 'Escríbeme',          desc: 'Un mensaje es suficiente para empezar. Respondo en menos de 24 h.' },
+  { number: '02', label: 'Primera sesión',      desc: 'Nos conocemos, entiendo tu situación y trazamos el camino juntos.' },
+  { number: '03', label: 'Plan personalizado',  desc: 'Un proceso terapéutico diseñado a tu medida y a tu ritmo.' },
+  { number: '04', label: 'Avanzamos juntos',    desc: 'Seguimiento continuo con ajustes según tu progreso real.' },
 ]
 
-const STEPS = [
-  { number: '01', label: 'Escríbeme', desc: 'Un mensaje es suficiente para empezar. Respondo en menos de 24 h.' },
-  { number: '02', label: 'Primera sesión', desc: 'Nos conocemos, entiendo tu situación y trazamos el camino juntos.' },
-  { number: '03', label: 'Plan personalizado', desc: 'Un proceso terapéutico diseñado a tu medida y a tu ritmo.' },
-  { number: '04', label: 'Avanzamos juntos', desc: 'Seguimiento continuo con ajustes según tu progreso real.' },
+function HipnosisIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="10" />
+      <circle cx="12" cy="12" r="6" />
+      <circle cx="12" cy="12" r="2" />
+      <path d="M12 2v4" />
+      <path d="M12 18v4" />
+    </svg>
+  )
+}
+
+function IconIndividual() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+      <circle cx="12" cy="7" r="4" />
+    </svg>
+  )
+}
+
+function IconPareja() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+      <circle cx="9" cy="7" r="4" />
+      <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+      <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+    </svg>
+  )
+}
+
+function IconOnline() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <rect x="2" y="3" width="20" height="14" rx="2" />
+      <line x1="8" y1="21" x2="16" y2="21" />
+      <line x1="12" y1="17" x2="12" y2="21" />
+    </svg>
+  )
+}
+
+function IconCognitiva() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="10" />
+      <path d="M12 16v-4" />
+      <path d="M12 8h.01" />
+      <path d="M8 12h8" />
+    </svg>
+  )
+}
+
+const THERAPIES = [
+  {
+    title: 'Terapia Individual',
+    desc: 'Sesiones personalizadas para abordar tus preocupaciones en un espacio seguro y confidencial.',
+    Icon: IconIndividual,
+    variant: 'teal' as const,
+  },
+  {
+    title: 'Terapia de Pareja',
+    desc: 'Fortalece tu relación mejorando la comunicación y resolviendo conflictos juntos.',
+    Icon: IconPareja,
+    variant: 'sage' as const,
+  },
+  {
+    title: 'Terapia Presencial · Online',
+    desc: 'La misma calidad de atención desde la comodidad de tu hogar, sin importar dónde estés.',
+    Icon: IconOnline,
+    variant: 'teal' as const,
+  },
+  {
+    title: 'Terapia Cognitivo-Conductual',
+    desc: 'Enfoque basado en evidencia para identificar y transformar patrones de pensamiento negativos.',
+    Icon: IconCognitiva,
+    variant: 'sage' as const,
+  },
 ]
 
 export function Section3() {
@@ -79,6 +124,14 @@ export function Section3() {
           <blockquote className={styles.quote}>
             "Acompañarte en tu proceso de cambio no es solo mi trabajo — es mi vocación."
           </blockquote>
+
+          <a
+            href="#sobre-mi"
+            className={styles.ctaBtn}
+            aria-label="Conoce más sobre mí"
+          >
+            Acerca de mí
+          </a>
         </div>
 
         {/* ── RIGHT: Bio + values + steps + CTA ── */}
@@ -95,47 +148,87 @@ export function Section3() {
             juicios, donde el cambio real es posible.
           </p>
 
-          {/* Values */}
-          <div className={styles.values}>
-            {VALUES.map(({ title, desc, icon, color }) => (
-              <div key={title} className={`${styles.valueCard} ${styles[`value_${color}`]}`}>
-                <div className={styles.valueIcon}>{icon}</div>
-                <div>
-                  <p className={styles.valueTitle}>{title}</p>
-                  <p className={styles.valueDesc}>{desc}</p>
-                </div>
-              </div>
-            ))}
+          {/* ── Tipos de Terapia header ── */}
+          <div className={styles.therapyHeader}>
+            <h3 className={styles.therapyTitle}>
+              Tipos de <em>terapia</em>
+            </h3>
+            <p className={styles.therapySubtitle}>
+              Ofrezco diferentes modalidades terapéuticas adaptadas a tus
+              necesidades. Cada enfoque es personalizado para acompañarte
+              en tu proceso de bienestar.
+            </p>
           </div>
 
-          {/* Steps */}
-          <div className={styles.processBlock}>
-            <p className={styles.processLabel}>¿Cómo empezamos?</p>
-            <div className={styles.steps}>
-              {STEPS.map(({ number, label, desc }) => (
-                <div key={number} className={styles.step}>
-                  <span className={styles.stepNum}>{number}</span>
-                  <div>
-                    <p className={styles.stepLabel}>{label}</p>
-                    <p className={styles.stepDesc}>{desc}</p>
-                  </div>
-                </div>
-              ))}
+          {/* Featured — Hipnosis Clínica */}
+          <div className={styles.featuredCard}>
+            <div className={styles.featuredIconWrap}>
+              <div className={styles.featuredIcon}>
+                <HipnosisIcon />
+              </div>
+              <span className={styles.featuredBadge}>Destacado</span>
+            </div>
+            <div className={styles.featuredContent}>
+              <h3 className={styles.featuredTitle}>Hipnosis Clínica</h3>
+              <p className={styles.featuredDesc}>
+                Técnica terapéutica que facilita el acceso a recursos internos profundos,
+                ayudando a superar bloqueos emocionales, fobias y hábitos limitantes de
+                forma segura y efectiva.
+              </p>
+              <a
+                href={WA_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.featuredBtn}
+              >
+                Más información
+              </a>
             </div>
           </div>
 
-          {/* CTA */}
-          <a
-            href={WA_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.ctaBtn}
-            aria-label="Reservar tu consulta por WhatsApp"
-          >
-            Reserva tu consulta
+          {/* Therapy cards grid */}
+          <div className={styles.therapyGrid}>
+            {THERAPIES.map(({ title, desc, Icon, variant }, i) => (
+              <article
+                key={title}
+                className={`${styles.card} ${styles[variant]}`}
+                style={{ '--i': i + 1 } as React.CSSProperties}
+              >
+                <div className={styles.cardIcon}>
+                  <Icon />
+                </div>
+                <div className={styles.cardBody}>
+                  <h3 className={styles.cardTitle}>{title}</h3>
+                  <p className={styles.cardDesc}>{desc}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+
+        </div>
+      </div>
+
+      {/* ── Steps + CTA — full-width below the two-column layout ── */}
+      <div className={styles.stepsBlock}>
+        <p className={styles.stepsLabel}>¿Cómo empezamos?</p>
+        <div className={styles.stepsGrid}>
+          {STEPS.map(({ number, label, desc }) => (
+            <div key={number} className={styles.stepItem}>
+              <span className={styles.stepNum}>{number}</span>
+              <div>
+                <p className={styles.stepTitle}>{label}</p>
+                <p className={styles.stepDesc}>{desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+        <div className={styles.stepsCta}>
+          <a href={WA_URL} target="_blank" rel="noopener noreferrer" className={styles.stepsCtaBtn}>
+            Reserva tu Consulta
           </a>
         </div>
       </div>
+
     </section>
   )
 }

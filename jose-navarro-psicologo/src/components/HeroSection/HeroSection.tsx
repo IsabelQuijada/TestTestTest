@@ -22,7 +22,7 @@ export function HeroSection() {
 
       {/* CTA principal */}
       <div className={styles.ctaWrap}>
-        <CTAButton>Agenda tu consulta</CTAButton>
+        <CTAButton>Reserva tu consulta</CTAButton>
       </div>
 
     </div>

@@ -1,0 +1,163 @@
+/* ── StepsRibbon ──────────────────────────────────────────── */
+
+.ribbon {
+  position: relative;
+  width: 100%;
+  /* Same navy family as Section3 — reads as one unified dark zone */
+  background:
+    radial-gradient(ellipse 60% 45% at 20% 55%, rgba(12, 132, 175, .08), transparent),
+    radial-gradient(ellipse 55% 55% at 85% 80%, rgba(194, 148, 56, .06), transparent),
+    linear-gradient(165deg, #112c45 0%, #173450 40%, #1a3a58 70%, #112c45 100%);
+  overflow: hidden;
+  z-index: 2;
+}
+
+/* Dot grid — identical to Section3 ::before */
+.ribbon::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, .04) 1px, transparent 1px);
+  background-size: 28px 28px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Subtle glow */
+.ribbon::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 120% at 50% 0%, rgba(12, 132, 175, .06) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 100% at 50% 100%, rgba(44, 144, 96, .04) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+/* ── Inner layout ── */
+.inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1380px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2.5rem clamp(1.5rem, 6vw, 6rem);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* ── Label ── */
+.label {
+  font-family: 'Raleway', sans-serif;
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, .65);
+  margin: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, .15);
+  padding-bottom: .75rem;
+}
+
+/* ── Steps grid ── */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.step {
+  display: flex;
+  align-items: flex-start;
+  gap: .75rem;
+}
+
+.stepNum {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem;
+  font-weight: 300;
+  color: rgba(194, 148, 56, .70);
+  line-height: 1;
+  flex-shrink: 0;
+  min-width: 2ch;
+  letter-spacing: -.04em;
+}
+
+.stepLabel {
+  font-family: 'Raleway', sans-serif;
+  font-size: .82rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 .25rem;
+  letter-spacing: -.01em;
+}
+
+.stepDesc {
+  font-family: 'Raleway', sans-serif;
+  font-size: .76rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, .72);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .steps {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .inner {
+    padding: 2rem 1.25rem;
+    gap: 1.25rem;
+  }
+
+  .steps {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .stepNum {
+    font-size: 1.5rem;
+  }
+}
+
+/* ── CTA row ── */
+.ctaRow {
+  display: flex;
+  justify-content: center;
+  margin-top: .75rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, .15);
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  font-family: 'Raleway', sans-serif;
+  font-size: .85rem;
+  font-weight: 600;
+  letter-spacing: .06em;
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dk) 100%);
+  padding: .75rem 2.2rem;
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
+  box-shadow:
+    0 4px 18px rgba(12, 132, 175, .30),
+    0 0 0 1px rgba(12, 132, 175, .15);
+}
+
+.cta:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 8px 28px rgba(12, 132, 175, .40),
+    0 0 0 1px rgba(12, 132, 175, .25);
+  filter: brightness(1.08);
+}

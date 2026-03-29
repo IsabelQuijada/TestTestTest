@@ -2,9 +2,9 @@
 .footer {
   background: linear-gradient(
     135deg,
-    #0e2843 0%,
-    var(--navy) 60%,
-    #12304e 100%
+    #0c2137 0%,
+    #0e2843 60%,
+    #0c2137 100%
   );
   color: rgba(255, 255, 255, .72);
   font-family: 'Raleway', sans-serif;

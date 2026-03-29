@@ -28,12 +28,21 @@ export function Home() {
       <Section2 />
 
       <div className={styles.waveDivider} aria-hidden="true">
-        <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0,48 C180,72 360,24 540,48 C720,72 900,24 1080,48 C1260,72 1380,36 1440,48 L1440,80 L0,80 Z" fill="#eaf1f8" />
+        <svg viewBox="0 0 1440 140" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          {/* Secondary wave — higher, semi-transparent, creates layered depth */}
+          <path d="M0,68 C240,48 480,88 720,68 C960,48 1200,88 1440,68 L1440,140 L0,140 Z" fill="rgba(23,52,80,0.45)" />
+          {/* Primary wave — full opacity, organic boundary */}
+          <path d="M0,98 C180,122 360,74 540,98 C720,122 900,74 1080,98 C1260,122 1380,86 1440,98 L1440,140 L0,140 Z" fill="#173450" />
         </svg>
       </div>
 
       <Section3 />
+
+      <div className={styles.waveFooter} aria-hidden="true">
+        <svg viewBox="0 0 1440 90" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0,40 C360,75 720,10 1080,45 C1260,62 1380,25 1440,38 L1440,90 L0,90 Z" fill="#0c2137" />
+        </svg>
+      </div>
 
       <Footer />
 
