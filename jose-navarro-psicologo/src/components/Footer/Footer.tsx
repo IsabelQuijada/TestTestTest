@@ -91,7 +91,7 @@ export function Footer() {
               <span className={styles.brandTitle}>Psicólogo</span>
             </span>
           </a>
-          <p className={styles.cedula}>Cédula Profesional: 12831580</p>
+          <p className={`${styles.cedula} ${styles.hideOnMobileSmall}`}>Cédula Profesional: 12831580</p>
         </div>
 
         {/* ── Navegación ── */}
@@ -122,7 +122,7 @@ export function Footer() {
         <div className={styles.col}>
           <h3 className={styles.colTitle}>Contacto</h3>
           <ul className={styles.contactList} role="list">
-            <li className={styles.contactItem}>
+            <li className={`${styles.contactItem} ${styles.hideOnMobileSmall}`}>
               <LocationIcon />
               <span className={styles.muted}>Cocula, Jalisco · México</span>
             </li>
@@ -132,7 +132,7 @@ export function Footer() {
                 +52 331 383 3562
               </a>
             </li>
-            <li className={styles.contactItem}>
+            <li className={`${styles.contactItem} ${styles.hideOnMobileSmall}`}>
               <ModeIcon />
               <span className={styles.muted}>Presencial · Online</span>
             </li>
