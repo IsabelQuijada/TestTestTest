@@ -1,8 +1,8 @@
 import { Header } from '../../components/Header/Header'
 import { Footer } from '../../components/Footer/Footer'
 import { OrbsBackground } from '../../components/OrbsBackground/OrbsBackground'
-import { CTAButton } from '../../components/HeroSection/CTAButton/CTAButton'
 import { PrimaryCTA } from '../../components/PrimaryCTA/PrimaryCTA'
+import { StickyWhatsApp } from '../../components/StickyWhatsApp/StickyWhatsApp'
 import { PHONE_DISPLAY, PHONE_TEL } from '../../constants/contact'
 import styles from './Contact.module.css'
 import React, { useRef, useState } from 'react'
@@ -67,69 +67,76 @@ export function Contact() {
           Responderé lo antes posible y con total confidencialidad
             </p>
           </section>
+        </div>
 
-          {/* Contact Methods - Primary CTAs */}
-          <section className={styles.contactMethods}>
-            {/* Desktop Grid */}
-            <div className={styles.ctaGrid}>
-              <a href="mailto:contacto@josenavarropsi.com" className={styles.ctaCard}>
-                <div className={styles.ctaIcon}>
-                  <EmailIcon />
-                </div>
-                <p className={styles.ctaCardTitle}>Escribir correo</p>
-                <span className={styles.ctaCardEmail}>contacto@josenavarropsi.com</span>
-              </a>
+        {/* Contact Cards Container with Servicios Ribbon Background - Full Width */}
+        <div className={styles.contactCardsContainer}>
+          <div className={styles.contactCardsInner}>
+            {/* Contact Methods - Primary CTAs */}
+            <section className={styles.contactMethods}>
+              {/* Desktop Grid */}
+              <div className={styles.ctaGrid}>
+                <a href="mailto:contacto@josenavarropsi.com" className={styles.ctaCard}>
+                  <div className={styles.ctaIcon}>
+                    <EmailIcon />
+                  </div>
+                  <p className={styles.ctaCardTitle}>Escribir correo</p>
+                  <span className={styles.ctaCardEmail}>contacto@josenavarropsi.com</span>
+                </a>
 
-              <a 
-                href="https://wa.me/523313833562" 
-                className={`${styles.ctaCard} ${styles.ctaCardWa}`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <div className={`${styles.ctaIcon} ${styles.ctaIconWa}`}>
-                  <WhatsAppIcon />
-                </div>
-                <p className={styles.ctaCardTitle}>WhatsApp</p>
-                <span className={styles.ctaCardPhone}>{PHONE_DISPLAY}</span>
-              </a>
+                <a 
+                  href="https://wa.me/523313833562" 
+                  className={`${styles.ctaCard} ${styles.ctaCardWa}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <div className={`${styles.ctaIcon} ${styles.ctaIconWa}`}>
+                    <WhatsAppIcon />
+                  </div>
+                  <p className={styles.ctaCardTitle}>WhatsApp</p>
+                  <span className={styles.ctaCardPhone}>{PHONE_DISPLAY}</span>
+                </a>
 
-              <a href={`tel:${PHONE_TEL}`} className={`${styles.ctaCard} ${styles.ctaCardCall}`}>
-                <div className={`${styles.ctaIcon} ${styles.ctaIconCall}`}>
-                  <PhoneIcon />
-                </div>
-                <p className={styles.ctaCardTitle}>Llamar</p>
-                <span className={styles.ctaCardPhone}>{PHONE_DISPLAY}</span>
-              </a>
-            </div>
-
-            {/* Mobile Carousel */}
-            <div className={styles.ctaCarouselWrapper}>
-              <CarouselCards />
-            </div>
-          </section>
-
-          {/* Essential Info - Horario y Modalidad */}
-          <section className={styles.additionalInfo}>
-            <div className={styles.infoItem}>
-              <ClockIcon />
-              <div>
-                <p className={styles.infoLabel}>Horario</p>
-                <p className={styles.infoValue}>Lunes a Viernes</p>
-                <p className={styles.infoSub}>10 am – 2 pm  ·  4 – 8 pm</p>
+                <a href={`tel:${PHONE_TEL}`} className={`${styles.ctaCard} ${styles.ctaCardCall}`}>
+                  <div className={`${styles.ctaIcon} ${styles.ctaIconCall}`}>
+                    <PhoneIcon />
+                  </div>
+                  <p className={styles.ctaCardTitle}>Llamar</p>
+                  <span className={styles.ctaCardPhone}>{PHONE_DISPLAY}</span>
+                </a>
               </div>
-            </div>
-            <div className={styles.infoItem}>
-              <MonitorIcon />
-              <div>
-                <p className={styles.infoLabel}>Modalidad</p>
-                <p className={`${styles.infoValue} ${styles.infoValueGreen}`}>
-                  Presencial · Online
-                  <span className={styles.onlineDot} aria-hidden="true" />
-                </p>
-              </div>
-            </div>
-          </section>
 
+              {/* Mobile Carousel */}
+              <div className={styles.ctaCarouselWrapper}>
+                <CarouselCards />
+              </div>
+            </section>
+
+            {/* Essential Info - Horario y Modalidad */}
+            <section className={styles.additionalInfo}>
+              <div className={styles.infoItem}>
+                <ClockIcon />
+                <div>
+                  <p className={styles.infoLabel}>Horario</p>
+                  <p className={styles.infoValue}>Lunes a Viernes</p>
+                  <p className={styles.infoSub}>10 am – 2 pm  ·  4 – 8 pm</p>
+                </div>
+              </div>
+              <div className={styles.infoItem}>
+                <MonitorIcon />
+                <div>
+                  <p className={styles.infoLabel}>Modalidad</p>
+                  <p className={`${styles.infoValue} ${styles.infoValueGreen}`}>
+                    Presencial · Online
+                    <span className={styles.onlineDot} aria-hidden="true" />
+                  </p>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+
+        <div className={styles.container}>
           {/* Location */}
           <section className={styles.locationSection}>
             <h2 className={styles.locationTitle}>Consultorio</h2>
@@ -165,10 +172,7 @@ export function Contact() {
       
       <Footer />
       
-      {/* Sticky WhatsApp CTA */}
-      <div className={styles.stickyWa}>
-        <CTAButton className={styles.stickyBtn} iconOnly />
-      </div>
+      <StickyWhatsApp />
     </>
   )
 }

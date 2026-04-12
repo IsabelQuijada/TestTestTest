@@ -5,8 +5,8 @@ import { HeroSection } from '../../components/HeroSection/HeroSection'
 import { HeroRibbon } from '../../components/HeroRibbon/HeroRibbon'
 import { Section2 } from '../../components/Section2/Section2'
 import { Section3 } from '../../components/Section3/Section3'
-import { CTAButton } from '../../components/HeroSection/CTAButton/CTAButton'
 import { Footer } from '../../components/Footer/Footer'
+import { StickyWhatsApp } from '../../components/StickyWhatsApp/StickyWhatsApp'
 import styles from './Home.module.css'
 
 export function Home() {
@@ -46,10 +46,7 @@ export function Home() {
 
       <Footer />
 
-      {/* Sticky WhatsApp CTA */}
-      <div className={styles.stickyWa}>
-        <CTAButton className={styles.stickyBtn} iconOnly />
-      </div>
+      <StickyWhatsApp />
     </>
   )
 }

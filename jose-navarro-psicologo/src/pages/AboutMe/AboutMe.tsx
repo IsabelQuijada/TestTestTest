@@ -1,8 +1,9 @@
 import { useRef } from 'react'
 import { Header } from '../../components/Header/Header'
 import { Footer } from '../../components/Footer/Footer'
-import { CTAButton } from '../../components/HeroSection/CTAButton/CTAButton'
+import { CTASection } from '../../components/CTASection/CTASection'
 import { OrbsBackground } from '../../components/OrbsBackground/OrbsBackground'
+import { StickyWhatsApp } from '../../components/StickyWhatsApp/StickyWhatsApp'
 import logo from '../../assets/logo.png'
 import styles from './AboutMe.module.css'
 
@@ -191,27 +192,12 @@ export function AboutMe() {
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className={styles.ctaSection}>
-          <div className={styles.ctaContainer}>
-            <h2 className={styles.ctaTitle}>¿Listo para dar el primer paso?</h2>
-            <p className={styles.ctaText}>
-              Estoy aquí para acompañarte en tu proceso de cambio. Agenda tu primera consulta 
-              y comencemos juntos este camino hacia el bienestar.
-            </p>
-            <div className={styles.ctaButton}>
-              <CTAButton />
-            </div>
-          </div>
-        </section>
+        <CTASection />
       </main>
 
       <Footer />
 
-      {/* Sticky WhatsApp button */}
-      <div className={styles.stickyWa}>
-        <CTAButton className={styles.stickyBtn} iconOnly />
-      </div>
+      <StickyWhatsApp />
     </>
   )
 }

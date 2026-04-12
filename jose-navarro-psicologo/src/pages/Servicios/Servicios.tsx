@@ -1,8 +1,8 @@
 import { Header } from '../../components/Header/Header'
 import { Footer } from '../../components/Footer/Footer'
-import { CTAButton } from '../../components/HeroSection/CTAButton/CTAButton'
-import { PrimaryCTA } from '../../components/PrimaryCTA/PrimaryCTA'
+import { CTASection } from '../../components/CTASection/CTASection'
 import { OrbsBackground } from '../../components/OrbsBackground/OrbsBackground'
+import { StickyWhatsApp } from '../../components/StickyWhatsApp/StickyWhatsApp'
 import styles from './Servicios.module.css'
 
 // Icono para cada servicio
@@ -160,29 +160,39 @@ export function Servicios() {
         <section className={styles.servicesSection}>
           <div className={styles.container}>
             <div className={styles.servicesGrid}>
-              {SERVICES.map((service) => (
-                <article
-                  key={service.id}
-                  id={service.id}
-                  className={styles.serviceCard}
-                >
-                  <div className={styles.serviceIcon}>
-                    {service.icon}
-                  </div>
-                  <h2 className={styles.serviceTitle}>{service.title}</h2>
-                  <p className={styles.serviceDescription}>{service.description}</p>
-                  <div className={styles.benefitsWrapper}>
-                    <h3 className={styles.benefitsTitle}>Beneficios:</h3>
-                    <ul className={styles.benefitsList}>
-                      {service.benefits.map((benefit, idx) => (
-                        <li key={idx} className={styles.benefitItem}>
-                          {benefit}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </article>
-              ))}
+              {SERVICES.map((service, idx) => {
+                // Asigna una clase de color/acento por índice
+                const accentClass = [
+                  styles['serviceCard--azul'],
+                  styles['serviceCard--verde'],
+                  styles['serviceCard--teal'],
+                  styles['serviceCard--dorado'],
+                  styles['serviceCard--navy'],
+                ][idx % 5];
+                return (
+                  <article
+                    key={service.id}
+                    id={service.id}
+                    className={styles.serviceCard + ' ' + accentClass}
+                  >
+                    <div className={styles.serviceIcon}>
+                      {service.icon}
+                    </div>
+                    <h2 className={styles.serviceTitle}>{service.title}</h2>
+                    <p className={styles.serviceDescription}>{service.description}</p>
+                    <div className={styles.benefitsWrapper}>
+                      <h3 className={styles.benefitsTitle}>Beneficios:</h3>
+                      <ul className={styles.benefitsList}>
+                        {service.benefits.slice(0, 3).map((benefit, idx) => (
+                          <li key={idx} className={styles.benefitItem}>
+                            {benefit}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </article>
+                )
+              })}
             </div>
           </div>
         </section>
@@ -243,28 +253,15 @@ export function Servicios() {
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className={styles.ctaSection}>
-          <div className={styles.container}>
-            <div className={styles.ctaCard}>
-              <h2 className={styles.ctaTitle}>¿Listo para dar el primer paso?</h2>
-              <p className={styles.ctaText}>
-                Agenda tu primera consulta y comienza tu proceso de transformación personal
-              </p>
-              <PrimaryCTA>
-                Agendar primera consulta
-              </PrimaryCTA>
-            </div>
-          </div>
-        </section>
+        <CTASection
+          text="Agenda tu primera consulta y comienza tu proceso de transformación personal"
+          sectionClassName={styles.ctaSection}
+        />
       </main>
 
       <Footer />
 
-      {/* Sticky WhatsApp CTA */}
-      <div className={styles.stickyWa}>
-        <CTAButton iconOnly />
-      </div>
+      <StickyWhatsApp />
     </>
   )
 }

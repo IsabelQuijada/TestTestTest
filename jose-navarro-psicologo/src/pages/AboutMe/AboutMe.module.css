@@ -441,67 +441,10 @@
   color: rgba(234, 241, 248, 0.75);
 }
 
-/* ── CTA Section ───────────────────────────────────────────── */
-.ctaSection {
-  padding: 3.5rem 1.5rem;
-  background: var(--bg);
-  text-align: center;
-}
-
-.ctaContainer {
-  max-width: 700px;
-  margin: 0 auto;
-}
-
-.ctaTitle {
-  font-size: clamp(1.6rem, 3.5vw, 2.2rem);
-  font-weight: 600;
-  color: var(--navy);
-  margin-bottom: 1rem;
-  line-height: 1.2;
-}
-
-.ctaText {
-  font-size: 1.05rem;
-  line-height: 1.6;
-  color: var(--muted);
-  margin-bottom: 1.8rem;
-  max-width: 550px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.ctaButton {
-  display: inline-block;
-}
-
-/* ── Sticky WhatsApp Button ────────────────────────────────── */
-.stickyWa {
-  position: fixed;
-  bottom: 1.75rem;
-  right: 1.75rem;
-  z-index: 500;
-}
-
-.stickyBtn {
-  width: 4.5rem;
-  height: 4.5rem;
-  border-radius: 50% !important;
-  padding: 0 !important;
-  justify-content: center;
-}
-
 /* ── Responsive: Tablet and Above ───────────────────────────── */
 @media (min-width: 768px) {
   .carouselWrapper .navButton {
     display: none;
-  }
-}
-
-@media (max-width: 767px) {
-  .stickyWa {
-    bottom: 1rem;
-    right: 1rem;
   }
 }
 
