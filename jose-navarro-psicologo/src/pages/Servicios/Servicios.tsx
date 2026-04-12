@@ -6,55 +6,6 @@ import { OrbsBackground } from '../../components/OrbsBackground/OrbsBackground'
 import { StickyWhatsApp } from '../../components/StickyWhatsApp/StickyWhatsApp'
 import styles from './Servicios.module.css'
 
-// Icono para cada servicio
-function TherapyIcon() {
-  return (
-    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-    </svg>
-  )
-}
-
-function CoupleIcon() {
-  return (
-    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-      <circle cx="9" cy="7" r="4"/>
-      <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-      <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-    </svg>
-  )
-}
-
-function OnlineIcon() {
-  return (
-    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
-      <line x1="8" y1="21" x2="16" y2="21"/>
-      <line x1="12" y1="17" x2="12" y2="21"/>
-    </svg>
-  )
-}
-
-function AnxietyIcon() {
-  return (
-    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <circle cx="12" cy="12" r="10"/>
-      <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
-      <line x1="9" y1="9" x2="9.01" y2="9"/>
-      <line x1="15" y1="9" x2="15.01" y2="9"/>
-    </svg>
-  )
-}
-
-function DepressionIcon() {
-  return (
-    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
-    </svg>
-  )
-}
-
 function HypnosisIcon() {
   return (
     <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -67,7 +18,8 @@ function HypnosisIcon() {
 
 interface Service {
   id: string
-  icon: React.ReactNode
+  image: string
+  imageAlt: string
   title: string
   description: string
   benefits: string[]
@@ -76,7 +28,8 @@ interface Service {
 const SERVICES: Service[] = [
   {
     id: 'terapia-individual',
-    icon: <TherapyIcon />,
+    image: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=1200&h=800&fit=crop',
+    imageAlt: 'Espacio de bienestar y meditacion',
     title: 'Terapia Individual',
     description: 'Espacio seguro y confidencial para trabajar en tu bienestar emocional, desarrollo personal y superación de dificultades.',
     benefits: [
@@ -88,7 +41,8 @@ const SERVICES: Service[] = [
   },
   {
     id: 'terapia-pareja',
-    icon: <CoupleIcon />,
+    image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1200&h=800&fit=crop',
+    imageAlt: 'Pareja en contexto de terapia positiva',
     title: 'Terapia de Pareja',
     description: 'Fortalece tu relación, mejora la comunicación y resuelve conflictos en un ambiente de respeto y comprensión.',
     benefits: [
@@ -100,7 +54,8 @@ const SERVICES: Service[] = [
   },
   {
     id: 'terapia-online',
-    icon: <OnlineIcon />,
+    image: 'https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b?w=1200&h=800&fit=crop',
+    imageAlt: 'Sesion de terapia online en ambiente calido',
     title: 'Terapia Online',
     description: 'Atención psicológica profesional desde la comodidad de tu hogar, con la misma calidad y confidencialidad.',
     benefits: [
@@ -112,7 +67,8 @@ const SERVICES: Service[] = [
   },
   {
     id: 'ansiedad-estres',
-    icon: <AnxietyIcon />,
+    image: 'https://images.unsplash.com/photo-1499209974431-9dddcece7f88?w=1200&h=800&fit=crop',
+    imageAlt: 'Bienestar emocional y calma',
     title: 'Ansiedad y Estrés',
     description: 'Tratamiento especializado para manejar y superar la ansiedad, el estrés y sus manifestaciones físicas y emocionales.',
     benefits: [
@@ -124,7 +80,8 @@ const SERVICES: Service[] = [
   },
   {
     id: 'depresion',
-    icon: <DepressionIcon />,
+    image: 'https://images.unsplash.com/photo-1516302752625-fcc3c50ae61f?w=1200&h=800&fit=crop',
+    imageAlt: 'Acompanamiento emocional con esperanza',
     title: 'Depresión',
     description: 'Acompañamiento profesional para superar la depresión, recuperar la motivación y el sentido de bienestar.',
     benefits: [
@@ -132,6 +89,19 @@ const SERVICES: Service[] = [
       'Activación conductual y recuperación de intereses',
       'Trabajo sobre autoestima y autoimagen',
       'Estrategias para prevenir recaídas'
+    ]
+  },
+  {
+    id: 'hipnoterapia-clinica',
+    image: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=1200&h=800&fit=crop',
+    imageAlt: 'Ambiente relajante para hipnoterapia clinica',
+    title: 'Hipnoterapia Clínica',
+    description: 'Intervencion especializada para cambios profundos y duraderos en ansiedad, habitos, bloqueos emocionales y bienestar integral.',
+    benefits: [
+      'Trabajo terapeutico profundo y enfocado',
+      'Tecnicas seguras con acompañamiento profesional',
+      'Apoyo para cambios emocionales sostenibles',
+      'Integracion con tu proceso psicoterapeutico'
     ]
   }
 ]
@@ -166,18 +136,21 @@ export function Servicios() {
                 const accentClass = [
                   styles['serviceCard--azul'],
                   styles['serviceCard--verde'],
-                  styles['serviceCard--teal'],
                   styles['serviceCard--dorado'],
-                  styles['serviceCard--navy'],
-                ][idx % 5];
+                ][idx % 3];
                 return (
                   <article
                     key={service.id}
                     id={service.id}
-                    className={styles.serviceCard + ' ' + accentClass}
+                    className={`${styles.serviceCard} ${accentClass}`}
                   >
-                    <div className={styles.serviceIcon}>
-                      {service.icon}
+                    <div className={styles.serviceMedia}>
+                      <img
+                        src={service.image}
+                        alt={service.imageAlt}
+                        className={styles.serviceImage}
+                        loading="lazy"
+                      />
                     </div>
                     <h2 className={styles.serviceTitle}>{service.title}</h2>
                     <p className={styles.serviceDescription}>{service.description}</p>
@@ -329,10 +302,8 @@ function ServicesCarousel() {
           const accentClass = [
             styles['serviceCard--azul'],
             styles['serviceCard--verde'],
-            styles['serviceCard--teal'],
             styles['serviceCard--dorado'],
-            styles['serviceCard--navy'],
-          ][idx % 5]
+          ][idx % 3]
 
           return (
             <article
@@ -340,7 +311,14 @@ function ServicesCarousel() {
               id={`${service.id}-mobile`}
               className={`${styles.serviceCard} ${accentClass} ${styles.carouselCard}`}
             >
-              <div className={styles.serviceIcon}>{service.icon}</div>
+              <div className={styles.serviceMedia}>
+                <img
+                  src={service.image}
+                  alt={service.imageAlt}
+                  className={styles.serviceImage}
+                  loading="lazy"
+                />
+              </div>
               <h2 className={styles.serviceTitle}>{service.title}</h2>
               <p className={styles.serviceDescription}>{service.description}</p>
               <div className={styles.benefitsWrapper}>

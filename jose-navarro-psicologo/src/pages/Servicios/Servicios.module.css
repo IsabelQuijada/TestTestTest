@@ -90,6 +90,24 @@
 
 .servicesSection {
   padding: 3.5rem 0 4.5rem;
+  position: relative;
+  background: linear-gradient(
+    180deg,
+    rgba(233, 242, 250, 0.78) 0%,
+    rgba(223, 236, 248, 0.86) 100%
+  );
+  border-top: 1px solid rgba(12, 132, 175, 0.14);
+  border-bottom: 1px solid rgba(23, 52, 80, 0.12);
+}
+
+.servicesSection::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 16% 25%, rgba(12, 132, 175, 0.09), transparent 40%),
+    radial-gradient(circle at 84% 65%, rgba(194, 148, 56, 0.08), transparent 42%);
+  pointer-events: none;
 }
 
 /* Grid de 3 columnas en desktop, 2 en tablet, 1 en mobile */
@@ -183,19 +201,19 @@
 /* Variantes de color/acento para cada card - CÁLIDOS Y ACOGEDORES */
 .serviceCard--azul {
   --card-accent: var(--teal);
-  background: linear-gradient(160deg, #ffffff 0%, #f3f9ff 100%);
-  border-color: rgba(12, 132, 175, 0.25);
+  background: linear-gradient(160deg, #ffffff 0%, #eef7ff 100%);
+  border-color: rgba(12, 132, 175, 0.3);
   box-shadow: 
-    0 3px 16px rgba(12, 132, 175, 0.15),
+    0 4px 18px rgba(12, 132, 175, 0.16),
     0 14px 30px rgba(7, 18, 36, 0.06),
     inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
 .serviceCard--verde {
-  --card-accent: var(--navy);
-  background: linear-gradient(160deg, #ffffff 0%, #f5f8fc 100%);
-  border-color: rgba(23, 52, 80, 0.2);
+  --card-accent: var(--sage);
+  background: linear-gradient(160deg, #ffffff 0%, #f2faf5 100%);
+  border-color: rgba(44, 144, 96, 0.28);
   box-shadow: 
-    0 3px 16px rgba(23, 52, 80, 0.12),
+    0 4px 18px rgba(44, 144, 96, 0.14),
     0 14px 30px rgba(7, 18, 36, 0.06),
     inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
@@ -210,10 +228,10 @@
 }
 .serviceCard--dorado {
   --card-accent: var(--gold);
-  background: linear-gradient(160deg, #ffffff 0%, #fffaf0 100%);
-  border-color: rgba(194, 148, 56, 0.25);
+  background: linear-gradient(160deg, #ffffff 0%, #fff8ec 100%);
+  border-color: rgba(194, 148, 56, 0.32);
   box-shadow: 
-    0 3px 16px rgba(194, 148, 56, 0.15),
+    0 4px 18px rgba(194, 148, 56, 0.17),
     0 14px 30px rgba(7, 18, 36, 0.06),
     inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
@@ -225,6 +243,16 @@
     0 3px 16px rgba(23, 52, 80, 0.12),
     0 14px 30px rgba(7, 18, 36, 0.06),
     inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.serviceCard--hipnosis {
+  --card-accent: var(--gold);
+  background: linear-gradient(160deg, #ffffff 0%, #fef8ee 100%);
+  border-color: rgba(194, 148, 56, 0.3);
+  box-shadow:
+    0 4px 18px rgba(194, 148, 56, 0.17),
+    0 14px 30px rgba(7, 18, 36, 0.07),
+    inset 0 1px 0 rgba(255, 255, 255, 0.92);
 }
 
 .serviceCard::before {
@@ -262,41 +290,36 @@
   opacity: 1;
 }
 
-.serviceIcon {
-  width: 56px;
-  height: 56px;
-  border-radius: 14px;
-  background: linear-gradient(
-    135deg,
-    var(--teal) 0%,
-    var(--navy) 100%
-  );
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 1rem;
-  color: white;
-  transition: all 0.28s ease;
-  box-shadow: 
-    0 4px 16px rgba(12, 132, 175, 0.25),
-    0 2px 6px rgba(23, 52, 80, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+.serviceMedia {
+  position: relative;
+  margin: -0.25rem -0.25rem 0.9rem;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(12, 132, 175, 0.18);
+  box-shadow: 0 6px 18px rgba(7, 18, 36, 0.12);
 }
 
-.serviceIcon svg {
-  width: 28px;
-  height: 28px;
-  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.15));
+.serviceMedia::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 50%;
+  background: linear-gradient(180deg, rgba(7, 18, 36, 0) 0%, rgba(7, 18, 36, 0.2) 100%);
+  pointer-events: none;
 }
 
-.serviceCard:hover .serviceIcon {
-  background: linear-gradient(135deg, var(--teal) 0%, var(--gold) 100%);
-  color: white;
-  transform: scale(1.06);
-  box-shadow: 
-    0 6px 24px rgba(12, 132, 175, 0.3),
-    0 3px 10px rgba(12, 132, 175, 0.25),
-    inset 0 1px 0 rgba(255, 255, 255, 0.35);
+.serviceImage {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.35s ease, filter 0.35s ease;
+  filter: saturate(1.08) brightness(1.05);
+}
+
+.serviceCard:hover .serviceImage {
+  transform: scale(1.04);
+  filter: saturate(1.14) brightness(1.08);
 }
 
 .serviceTitle {
@@ -391,12 +414,12 @@
    ══════════════════════════════════════════════════════════════ */
 
 .hypnosisSection {
-  padding: 4rem 0;
+  padding: 3.2rem 0 3.6rem;
   background: linear-gradient(
-    145deg,
-    #eff6fb 0%,
-    #e8f1f9 42%,
-    #edf2f8 100%
+    150deg,
+    #d7e6f3 0%,
+    #cedeed 44%,
+    #d7e2ef 100%
   );
   position: relative;
   scroll-margin-top: calc(var(--full-header-h) + 2rem);
@@ -413,9 +436,9 @@
   height: 1000px;
   background: radial-gradient(
     circle,
-    rgba(12, 132, 175, 0.14) 0%,
-    rgba(23, 52, 80, 0.1) 42%,
-    rgba(194, 148, 56, 0.08) 62%,
+    rgba(12, 132, 175, 0.24) 0%,
+    rgba(23, 52, 80, 0.18) 42%,
+    rgba(194, 148, 56, 0.15) 64%,
     transparent 70%
   );
   pointer-events: none;
@@ -427,9 +450,9 @@
   inset: 0;
   background: linear-gradient(
     180deg,
-    rgba(255, 255, 255, 0.45) 0%,
-    rgba(255, 255, 255, 0.18) 34%,
-    rgba(255, 255, 255, 0.42) 100%
+    rgba(17, 37, 58, 0.05) 0%,
+    rgba(255, 255, 255, 0.1) 34%,
+    rgba(17, 37, 58, 0.06) 100%
   );
   pointer-events: none;
 }
@@ -437,55 +460,42 @@
 .hypnosisCard {
   position: relative;
   z-index: 1;
-  background: linear-gradient(
-    145deg,
-    rgba(255, 255, 255, 0.97) 0%,
-    rgba(243, 251, 255, 0.96) 56%,
-    rgba(242, 246, 251, 0.95) 100%
-  );
-  border-radius: var(--radius-xl);
-  padding: 3rem;
-  box-shadow: 
-    0 10px 32px rgba(12, 132, 175, 0.16),
-    0 20px 60px rgba(7, 18, 36, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 1);
-  border: 1px solid rgba(12, 132, 175, 0.22);
+  max-width: 1040px;
+  margin: 0 auto;
+  background: transparent;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+  border: 0;
   overflow: hidden;
 }
 
 .hypnosisCard::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 6px;
-  background: linear-gradient(
-    90deg,
-    var(--teal) 0%,
-    var(--navy) 42%,
-    var(--gold) 100%
-  );
+  content: none;
+}
+
+.hypnosisCard::after {
+  content: none;
 }
 
 .hypnosisIcon {
-  width: 80px;
-  height: 80px;
+  width: 72px;
+  height: 72px;
   border-radius: 50%;
   background: linear-gradient(
     135deg,
-    rgba(12, 132, 175, 0.12) 0%,
-    rgba(23, 52, 80, 0.14) 56%,
-    rgba(194, 148, 56, 0.16) 100%
+    rgba(12, 132, 175, 0.2) 0%,
+    rgba(23, 52, 80, 0.2) 56%,
+    rgba(194, 148, 56, 0.22) 100%
   );
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 2rem;
+  margin: 0 auto 1.3rem;
   color: var(--teal-dk);
   animation: pulse 3s ease-in-out infinite;
   box-shadow:
-    0 8px 24px rgba(12, 132, 175, 0.22),
+    0 10px 28px rgba(12, 132, 175, 0.3),
     inset 0 1px 0 rgba(255, 255, 255, 0.8);
 }
 
@@ -503,40 +513,43 @@
 .hypnosisContent {
   max-width: 900px;
   margin: 0 auto;
+  padding: 0 0.6rem;
 }
 
 .hypnosisTitle {
-  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-size: clamp(1.8rem, 3.7vw, 2.45rem);
   font-weight: 700;
-  color: var(--navy);
+  color: #103556;
   text-align: center;
-  margin: 0 0 0.5rem;
+  margin: 0 0 0.28rem;
   line-height: 1.2;
+  text-shadow: 0 2px 12px rgba(12, 132, 175, 0.1);
 }
 
 .hypnosisSubtitle {
-  font-size: clamp(1.1rem, 2vw, 1.25rem);
-  color: var(--teal-dk);
+  font-size: clamp(1rem, 1.9vw, 1.17rem);
+  color: #0f7ea6;
   text-align: center;
-  margin: 0 0 2rem;
-  font-weight: 500;
+  margin: 0 0 1.2rem;
+  font-weight: 600;
 }
 
 .hypnosisDescription {
-  font-size: 1.0625rem;
-  color: #39536a;
-  line-height: 1.7;
-  margin: 0 0 2.5rem;
+  font-size: 1rem;
+  color: #3a5268;
+  line-height: 1.62;
+  margin: 0 auto 1.6rem;
   text-align: center;
+  max-width: 760px;
 }
 
 /* ── Hypnosis Grid ──────────────────────────────────────────── */
 
 .hypnosisGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  margin-bottom: 2rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.2rem;
 }
 
 .hypnosisBlock {
@@ -548,26 +561,31 @@
   );
   border-radius: var(--radius-md);
   padding: 2rem;
-  border: 1px solid rgba(12, 132, 175, 0.2);
+  border: 1px solid rgba(12, 132, 175, 0.26);
+  border-top: 4px solid var(--teal);
   box-shadow: 
-    0 6px 18px rgba(12, 132, 175, 0.12),
+    0 8px 20px rgba(12, 132, 175, 0.14),
     inset 0 1px 0 rgba(255, 255, 255, 0.8);
   transition: all 0.3s ease;
 }
 
+.hypnosisBlock:last-child {
+  border-top-color: var(--gold);
+}
+
 .hypnosisBlock:hover {
   transform: translateY(-2px);
-  border-color: rgba(23, 52, 80, 0.28);
+  border-color: rgba(194, 148, 56, 0.36);
   box-shadow: 
-    0 10px 26px rgba(12, 132, 175, 0.16),
+    0 12px 30px rgba(12, 132, 175, 0.2),
     inset 0 1px 0 rgba(255, 255, 255, 1);
 }
 
 .hypnosisBlockTitle {
-  font-size: 1.25rem;
+  font-size: 1.12rem;
   font-weight: 700;
-  color: var(--navy);
-  margin: 0 0 1.25rem;
+  color: #173957;
+  margin: 0 0 0.95rem;
 }
 
 .hypnosisList {
@@ -577,12 +595,12 @@
 }
 
 .hypnosisList li {
-  font-size: 0.9375rem;
-  color: #4e6477;
-  line-height: 1.7;
+  font-size: 0.9rem;
+  color: #4a6073;
+  line-height: 1.56;
   padding-left: 1.75rem;
   position: relative;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.52rem;
 }
 
 .hypnosisList li::before {
@@ -612,22 +630,23 @@
     rgba(238, 249, 255, 0.92) 0%,
     rgba(241, 246, 252, 0.9) 100%
   );
-  border-left: 4px solid var(--teal);
+  border-left: 4px solid var(--gold);
+  border: 1px solid rgba(23, 52, 80, 0.14);
   border-radius: var(--radius-md);
-  padding: 1.5rem;
-  margin-top: 2rem;
-  box-shadow: 0 6px 18px rgba(12, 132, 175, 0.14);
+  padding: 1.05rem 1.2rem;
+  margin-top: 0.5rem;
+  box-shadow: 0 8px 20px rgba(12, 132, 175, 0.16);
 }
 
 .hypnosisNote p {
-  font-size: 0.9375rem;
+  font-size: 0.9rem;
   color: var(--muted);
-  line-height: 1.7;
+  line-height: 1.58;
   margin: 0;
 }
 
 .hypnosisNote strong {
-  color: var(--navy);
+  color: #123b5b;
   font-weight: 600;
 }
 
@@ -637,6 +656,22 @@
 
 .ctaSection {
   padding: 4rem 0 5rem;
+  position: relative;
+  background: linear-gradient(
+    180deg,
+    #e7f0f8 0%,
+    #edf4fa 60%,
+    #eef4f9 100%
+  );
+  border-top: 1px solid rgba(12, 132, 175, 0.14);
+}
+
+.ctaSection::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 0%, rgba(12, 132, 175, 0.08), transparent 55%);
 }
 
 /* ══════════════════════════════════════════════════════════════
@@ -686,11 +721,11 @@
   }
 
   .hypnosisSection {
-    padding: 3rem 0;
+    padding: 2.5rem 0;
   }
 
   .hypnosisCard {
-    padding: 2rem 1.5rem;
+    padding: 0;
   }
 
   .hypnosisGrid {
@@ -772,6 +807,10 @@
 
   .serviceCard {
     padding: 1.5rem;
+  }
+
+  .serviceImage {
+    height: 138px;
   }
 
   .hypnosisCard {

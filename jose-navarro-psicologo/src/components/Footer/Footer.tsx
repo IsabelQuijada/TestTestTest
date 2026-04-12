@@ -59,7 +59,7 @@ const SERVICE_LINKS = [
   { label: 'Terapia Online', href: '#servicios' },
   { label: 'Ansiedad y Estrés', href: '#servicios' },
   { label: 'Depresión', href: '#servicios' },
-  { label: 'Hipnoterapia', href: '#servicios' },
+  { label: 'Hipnoterapia Clínica', href: '#servicios' },
 ]
 
 
