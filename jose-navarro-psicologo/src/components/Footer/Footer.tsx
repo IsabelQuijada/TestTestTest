@@ -49,7 +49,7 @@ function FacebookIcon() {
 
 const NAV_LINKS = [
   { label: 'Servicios',  href: '#servicios' },
-  { label: 'Acerca de mí', href: '#sobre-mi' },
+  { label: 'Acerca de mí', href: '/#acerca-de-mi' }, // Ahora siempre navega a la sección
   { label: 'Contacto',   href: '#contacto' },
 ]
 

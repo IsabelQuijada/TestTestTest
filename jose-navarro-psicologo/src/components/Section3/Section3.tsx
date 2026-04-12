@@ -124,7 +124,7 @@ export function Section3() {
           </blockquote>
 
           <a
-            href="#sobre-mi"
+            href="#/acerca-de-mi"
             className={styles.ctaBtn}
             aria-label="Conoce más sobre mí"
           >

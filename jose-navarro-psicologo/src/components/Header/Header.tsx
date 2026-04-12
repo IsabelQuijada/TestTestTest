@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import logo from '../../assets/logo.png'
 import { Ribbon } from './Ribbon'
 import { NavMenu } from './NavMenu'
@@ -21,9 +22,9 @@ export function Header() {
         className={`${styles.siteHeader} ${scrolled ? styles.siteHeaderScrolled : ''}`}
         role="banner"
       >        <div className={styles.headerInner}>
-          <a
+          <Link
             className={styles.headerLogo}
-            href="/"
+            to="/"
             aria-label="Ir al inicio — José Navarro Psicólogo"
           >
             <img
@@ -40,7 +41,7 @@ export function Header() {
               <span className={styles.brandRule} aria-hidden="true" />
               <span className={styles.brandTitle}>Psicólogo</span>
             </span>
-          </a>
+          </Link>
 
           <NavMenu />
         </div>

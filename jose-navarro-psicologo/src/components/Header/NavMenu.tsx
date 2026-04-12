@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
+import { Link } from 'react-router-dom'
 import styles from './NavMenu.module.css'
 import { WA_URL } from '../../constants/contact'
 
@@ -10,7 +11,7 @@ export interface NavItem {
 const NAV_ITEMS: NavItem[] = [
   { label: 'Inicio',          href: '/' },
   { label: 'Servicios',       href: '#servicios' },
-  { label: 'Acerca de mí',    href: '#sobre-mi' },
+  { label: 'Acerca de mí',    href: '/acerca-de-mi' },
   { label: 'Contacto',        href: '#contacto' },
 ]
 
@@ -56,7 +57,11 @@ export function NavMenu() {
         <ul className={styles.navList} role="list">
           {NAV_ITEMS.map(({ label, href }) => (
             <li key={href}>
-              <a href={href} className={styles.navLink}>{label}</a>
+              {href.startsWith('#') ? (
+                <a href={href} className={styles.navLink}>{label}</a>
+              ) : (
+                <Link to={href} className={styles.navLink}>{label}</Link>
+              )}
             </li>
           ))}
         </ul>
@@ -98,14 +103,25 @@ export function NavMenu() {
           <ul className={styles.mobileNavList} role="list">
             {NAV_ITEMS.map(({ label, href }) => (
               <li key={href}>
-                <a
-                  href={href}
-                  className={styles.mobileNavLink}
-                  onClick={() => setOpen(false)}
-                  tabIndex={open ? 0 : -1}
-                >
-                  {label}
-                </a>
+                {href.startsWith('#') ? (
+                  <a
+                    href={href}
+                    className={styles.mobileNavLink}
+                    onClick={() => setOpen(false)}
+                    tabIndex={open ? 0 : -1}
+                  >
+                    {label}
+                  </a>
+                ) : (
+                  <Link
+                    to={href}
+                    className={styles.mobileNavLink}
+                    onClick={() => setOpen(false)}
+                    tabIndex={open ? 0 : -1}
+                  >
+                    {label}
+                  </Link>
+                )}
               </li>
             ))}
           </ul>
