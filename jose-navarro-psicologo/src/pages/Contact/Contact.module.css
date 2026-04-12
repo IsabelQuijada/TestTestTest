@@ -1,0 +1,553 @@
+/* ═══════════════════════════════════════════════════════════════
+   Contact Page Styles - Fluid & Organic Design
+   ═══════════════════════════════════════════════════════════════ */
+
+.contactPage {
+  min-height: 100vh;
+  padding-top: 100px;
+  padding-bottom: 3rem;
+  position: relative;
+  background:
+    radial-gradient(circle at 50% 8%, rgba(12, 132, 175, 0.22), transparent 45%),
+    radial-gradient(circle at 8% 35%, rgba(12, 132, 175, 0.25), transparent 40%),
+    radial-gradient(circle at 82% 28%, rgba(12, 132, 175, 0.18), transparent 38%),
+    radial-gradient(circle at 92% 75%, rgba(12, 132, 175, 0.20), transparent 42%),
+    radial-gradient(circle at 18% 88%, rgba(12, 132, 175, 0.23), transparent 40%),
+    radial-gradient(circle at 65% 60%, rgba(12, 132, 175, 0.15), transparent 35%),
+    linear-gradient(165deg, #173450 0%, #1c3f5e 40%, #173450 70%, #112c45 100%);
+}
+
+.contactPage::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");
+  opacity: 0.6;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Hero Section - Simplified
+   ───────────────────────────────────────────────────────────── */
+
+.heroSection {
+  text-align: center;
+  padding: 2rem 0 3rem;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.55; transform: scale(1.35); }
+}
+
+.mainTitle {
+  font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.95);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  letter-spacing: -0.01em;
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.subtitle {
+  font-size: clamp(1.125rem, 2vw, 1.3rem);
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 620px;
+  margin: 0 auto 1rem;
+  font-weight: 400;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Contact Methods - Primary CTAs (Card Grid)
+   ───────────────────────────────────────────────────────────── */
+
+.contactMethods {
+  text-align: center;
+  margin: 3rem auto;
+  max-width: 920px;
+}
+
+/* Hide original grid on mobile, use carousel instead */
+.ctaGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.ctaCarouselWrapper {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .ctaGrid {
+    display: none;
+  }
+  .ctaCarouselWrapper {
+    display: block;
+  }
+}
+
+/* Carousel styles for mobile */
+.carouselOuter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+  margin: 0 auto;
+  max-width: 100vw;
+}
+.carousel {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
+  max-width: 340px;
+  margin: 0 0.5rem;
+  scrollbar-width: none;
+}
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+.carouselNavBtn {
+  background: rgba(255,255,255,0.12);
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  border-radius: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 0.25rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.carouselNavBtn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.carouselNavBtn:not(:disabled):hover {
+  background: rgba(255,255,255,0.22);
+}
+
+.ctaCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2.5rem 2rem;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 24px;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+}
+
+.ctaCard::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(12, 132, 175, 0.08) 0%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.ctaCard:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255, 255, 255, 0.22);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+}
+
+.ctaCard:hover::before {
+  opacity: 1;
+}
+
+.ctaCardWa::before {
+  background: linear-gradient(135deg, rgba(37, 211, 102, 0.10) 0%, transparent 100%);
+}
+
+.ctaCardCall::before {
+  background: linear-gradient(135deg, rgba(194, 148, 56, 0.10) 0%, transparent 100%);
+}
+
+.ctaIcon {
+  width: 62px;
+  height: 62px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--teal) 0%, #0a6b91 100%);
+  border-radius: 18px;
+  color: white;
+  margin-bottom: 1.25rem;
+  box-shadow: 0 8px 24px rgba(12, 132, 175, 0.35);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ctaCard:hover .ctaIcon {
+  transform: scale(1.08);
+  box-shadow: 0 12px 32px rgba(12, 132, 175, 0.45);
+}
+
+.ctaIconWa {
+  background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.35);
+}
+
+.ctaCard:hover .ctaIconWa {
+  box-shadow: 0 12px 32px rgba(37, 211, 102, 0.5);
+}
+
+.ctaIconCall {
+  background: linear-gradient(135deg, var(--gold) 0%, #e0b86a 100%);
+  box-shadow: 0 8px 24px rgba(194, 148, 56, 0.35);
+}
+
+.ctaCard:hover .ctaIconCall {
+  box-shadow: 0 12px 32px rgba(194, 148, 56, 0.5);
+}
+
+.ctaIcon svg {
+  width: 28px;
+  height: 28px;
+}
+
+.ctaCardTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 0.5rem;
+}
+
+.ctaCardEmail,
+.ctaCardPhone {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.65);
+  font-weight: 500;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Essential Info - Horario y Modalidad (Antes del mapa)
+   ───────────────────────────────────────────────────────────── */
+
+.additionalInfo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3.5rem;
+  flex-wrap: wrap;
+  margin: 3rem auto 3.5rem;
+  max-width: 680px;
+  padding-top: 0.5rem;
+}
+
+.infoItem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.infoItem svg {
+  width: 42px;
+  height: 42px;
+  color: var(--teal);
+  opacity: 0.75;
+  flex-shrink: 0;
+}
+
+.infoLabel {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.45);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.3rem;
+}
+
+.infoValue {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.90);
+  margin-bottom: 0.15rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.infoValueGreen {
+  color: var(--sage);
+}
+
+.infoSub {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.55);
+  font-weight: 400;
+}
+
+.onlineDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--sage);
+  flex-shrink: 0;
+  box-shadow: 0 0 8px rgba(44, 144, 96, 0.65);
+  animation: pulse 2.2s ease-in-out infinite;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Location Section - Clean & Open
+   ───────────────────────────────────────────────────────────── */
+
+.locationSection {
+  max-width: 920px;
+  margin: 0 auto 4rem;
+  text-align: center;
+}
+
+.locationTitle {
+  font-size: clamp(1.5rem, 3.5vw, 2rem);
+  font-weight: 600;
+  color: white;
+  margin-bottom: 0.65rem;
+  letter-spacing: -0.01em;
+}
+
+.locationAddress {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 1.75rem;
+  font-weight: 400;
+}
+
+.mapWrapper {
+  width: 100%;
+  height: 450px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.mapWrapper:hover {
+  box-shadow: 0 16px 60px rgba(0, 0, 0, 0.4);
+  border-color: rgba(255, 255, 255, 0.16);
+}
+
+.mapWrapper iframe {
+  width: 100%;
+  height: 100%;
+  display: block;
+  filter: grayscale(15%) brightness(0.96) contrast(1.02);
+  transition: filter 0.3s ease;
+}
+
+.mapWrapper:hover iframe {
+  filter: grayscale(0%) brightness(1) contrast(1);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Final CTA - Simplified
+   ───────────────────────────────────────────────────────────── */
+
+.finalCta {
+  text-align: center;
+  padding: 2rem 2rem 3rem;
+  margin: 3rem auto 2rem;
+}
+
+.finalCtaBtn {
+  margin: 0 auto;
+  font-size: 1.08rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  padding: 0.92rem 2.6rem;
+  opacity: 1;
+  animation: none;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Wave Footer
+   ───────────────────────────────────────────────────────────── */
+
+.waveFooter {
+  position: relative;
+  width: 100%;
+  height: 90px;
+  overflow: hidden;
+  line-height: 0;
+  margin-top: auto;
+  background: transparent;
+}
+
+.waveFooter svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Sticky WhatsApp Button
+   ───────────────────────────────────────────────────────────── */
+
+.stickyWa {
+  position: fixed;
+  bottom: 1.75rem;
+  right: 1.75rem;
+  z-index: 500;
+}
+
+.stickyBtn {
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: 50% !important;
+  padding: 0 !important;
+  justify-content: center;
+  opacity: 1 !important;
+  animation: none !important;
+  box-shadow:
+    0 12px 42px rgba(37, 211, 102, .55),
+    0 4px 14px rgba(0, 0, 0, .15);
+}
+
+.stickyBtn svg {
+  width: 34px;
+  height: 34px;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Responsive Design
+   ───────────────────────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .contactPage {
+    padding-top: 80px;
+    padding-bottom: 2rem;
+  }
+
+  .container {
+    padding: 0 1.25rem;
+  }
+
+  .heroSection {
+    padding: 1.25rem 0 2rem;
+  }
+
+  .mainTitle {
+    font-size: clamp(1.25rem, 4vw, 1.75rem);
+    line-height: 1.55;
+    margin-bottom: 1.75rem;
+  }
+
+  .contactMethods {
+    margin: 2.5rem auto;
+  }
+
+  .ctaGrid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  /* Optimizar tarjetas del carrusel en mobile */
+  .ctaCard {
+    padding: 1.75rem 1.25rem;
+    min-height: auto;
+  }
+
+  .ctaIcon {
+    width: 52px;
+    height: 52px;
+    margin-bottom: 1rem;
+  }
+
+  .ctaIcon svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .ctaCardTitle {
+    font-size: 1.125rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .ctaCardEmail,
+  .ctaCardPhone {
+    font-size: 0.875rem;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    text-align: center;
+    max-width: 100%;
+    line-height: 1.4;
+  }
+
+  .carousel {
+    max-width: 300px;
+  }
+
+  .carouselNavBtn {
+    width: 2.25rem;
+    height: 2.25rem;
+    font-size: 1.5rem;
+  }
+
+  .additionalInfo {
+    gap: 2rem;
+    margin: 2.5rem auto 3rem;
+  }
+
+  .infoItem svg {
+    width: 36px;
+    height: 36px;
+  }
+
+  .mapWrapper {
+    height: 350px;
+  }
+
+  .finalCta {
+    padding: 1.5rem 1rem 2.5rem;
+    margin: 2.5rem auto 2rem;
+  }
+
+  .finalCtaBtn {
+    font-size: 1rem;
+    padding: 0.85rem 2.2rem;
+  }
+
+  .stickyWa {
+    bottom: 1.25rem;
+    right: 1.25rem;
+  }
+
+  .stickyBtn {
+    width: 4rem;
+    height: 4rem;
+  }
+
+  .stickyBtn svg {
+    width: 30px;
+    height: 30px;
+  }
+}

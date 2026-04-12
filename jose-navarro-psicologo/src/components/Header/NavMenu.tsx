@@ -12,7 +12,7 @@ const NAV_ITEMS: NavItem[] = [
   { label: 'Inicio',          href: '/' },
   { label: 'Servicios',       href: '#servicios' },
   { label: 'Acerca de mí',    href: '/acerca-de-mi' },
-  { label: 'Contacto',        href: '#contacto' },
+  { label: 'Contacto',        href: '/contacto' },
 ]
 
 const CTA_URL = WA_URL
