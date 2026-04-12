@@ -62,7 +62,9 @@ export function Contact() {
         <div className={styles.container}>
           {/* Hero Section */}
           <section className={styles.heroSection}>
-            <h1 className={styles.mainTitle}>Contáctame sin compromiso</h1>
+            <h1 className={styles.mainTitle}>
+              Contáctame <span className={styles.mainTitleAccent}>sin compromiso</span>
+            </h1>
             <p className={styles.subtitle}>
           Responderé lo antes posible y con total confidencialidad
             </p>

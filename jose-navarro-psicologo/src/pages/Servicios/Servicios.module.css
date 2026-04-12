@@ -8,9 +8,9 @@
   padding-top: var(--full-header-h);
   background: linear-gradient(
     180deg,
-    #eef8ff 0%,
-    #e9f7fb 48%,
-    #edf9f4 100%
+    #edf5fc 0%,
+    #ecf3f9 52%,
+    #f3f6fa 100%
   );
 }
 
@@ -31,9 +31,9 @@
   text-align: center;
   background: linear-gradient(
     130deg,
-    rgba(7, 63, 102, 0.12) 0%,
-    rgba(12, 132, 175, 0.16) 45%,
-    rgba(44, 144, 96, 0.14) 100%
+    rgba(7, 63, 102, 0.14) 0%,
+    rgba(12, 132, 175, 0.14) 52%,
+    rgba(194, 148, 56, 0.1) 100%
   );
   overflow: hidden;
 }
@@ -48,8 +48,8 @@
   height: 800px;
   background: radial-gradient(
     circle,
-    rgba(12, 132, 175, 0.22) 0%,
-    rgba(44, 144, 96, 0.16) 40%,
+    rgba(12, 132, 175, 0.2) 0%,
+    rgba(23, 52, 80, 0.12) 45%,
     transparent 70%
   );
   pointer-events: none;
@@ -100,6 +100,56 @@
   align-items: stretch;
 }
 
+.servicesCarouselWrapper {
+  display: none;
+}
+
+.servicesCarouselOuter {
+  position: relative;
+}
+
+.servicesCarousel {
+  display: flex;
+  gap: 0.875rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  padding: 0.2rem 0.1rem 0.6rem;
+  scrollbar-width: none;
+}
+
+.servicesCarousel::-webkit-scrollbar {
+  display: none;
+}
+
+.carouselCard {
+  flex: 0 0 86%;
+  scroll-snap-align: start;
+  min-height: 100%;
+}
+
+.servicesNavBtn {
+  display: none;
+}
+
+.servicesDots {
+  display: none;
+}
+
+.servicesDot {
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  border: 0;
+  background: rgba(23, 52, 80, 0.25);
+  padding: 0;
+}
+
+.servicesDotActive {
+  background: var(--teal);
+}
+
 @media (max-width: 1024px) {
   .servicesGrid {
     grid-template-columns: repeat(2, 1fr);
@@ -118,7 +168,7 @@
   display: flex;
   flex-direction: column;
   --card-accent: var(--teal);
-  background: linear-gradient(165deg, #ffffff 0%, #f6fbff 65%, #f4fffb 100%);
+  background: linear-gradient(165deg, #ffffff 0%, #f4f9ff 62%, #f4f7fb 100%);
   border: 1.5px solid rgba(12, 132, 175, 0.22);
   border-radius: 16px;
   padding: 1.5rem 1.35rem 0.4rem;
@@ -133,7 +183,7 @@
 /* Variantes de color/acento para cada card - CÁLIDOS Y ACOGEDORES */
 .serviceCard--azul {
   --card-accent: var(--teal);
-  background: linear-gradient(160deg, #ffffff 0%, #f5fbff 100%);
+  background: linear-gradient(160deg, #ffffff 0%, #f3f9ff 100%);
   border-color: rgba(12, 132, 175, 0.25);
   box-shadow: 
     0 3px 16px rgba(12, 132, 175, 0.15),
@@ -141,17 +191,17 @@
     inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
 .serviceCard--verde {
-  --card-accent: var(--sage);
-  background: linear-gradient(160deg, #ffffff 0%, #f7fdf9 100%);
-  border-color: rgba(44, 144, 96, 0.25);
+  --card-accent: var(--navy);
+  background: linear-gradient(160deg, #ffffff 0%, #f5f8fc 100%);
+  border-color: rgba(23, 52, 80, 0.2);
   box-shadow: 
-    0 3px 16px rgba(44, 144, 96, 0.15),
+    0 3px 16px rgba(23, 52, 80, 0.12),
     0 14px 30px rgba(7, 18, 36, 0.06),
     inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
 .serviceCard--teal {
   --card-accent: var(--teal-dk);
-  background: linear-gradient(160deg, #ffffff 0%, #f3fcfd 100%);
+  background: linear-gradient(160deg, #ffffff 0%, #f2f8fc 100%);
   border-color: rgba(12, 132, 175, 0.25);
   box-shadow: 
     0 3px 16px rgba(12, 132, 175, 0.15),
@@ -160,7 +210,7 @@
 }
 .serviceCard--dorado {
   --card-accent: var(--gold);
-  background: linear-gradient(160deg, #ffffff 0%, #fffdf7 100%);
+  background: linear-gradient(160deg, #ffffff 0%, #fffaf0 100%);
   border-color: rgba(194, 148, 56, 0.25);
   box-shadow: 
     0 3px 16px rgba(194, 148, 56, 0.15),
@@ -169,7 +219,7 @@
 }
 .serviceCard--navy {
   --card-accent: var(--navy);
-  background: linear-gradient(160deg, #ffffff 0%, #f8fafb 100%);
+  background: linear-gradient(160deg, #ffffff 0%, #f4f7fb 100%);
   border-color: rgba(23, 52, 80, 0.2);
   box-shadow: 
     0 3px 16px rgba(23, 52, 80, 0.12),
@@ -202,8 +252,8 @@
 .serviceCard:hover {
   transform: translateY(-6px);
   box-shadow:
-    0 12px 32px rgba(12, 132, 175, 0.22),
-    0 20px 48px rgba(44, 144, 96, 0.12);
+    0 12px 32px rgba(12, 132, 175, 0.2),
+    0 20px 48px rgba(23, 52, 80, 0.12);
   border-color: var(--card-accent);
 }
 
@@ -219,7 +269,7 @@
   background: linear-gradient(
     135deg,
     var(--teal) 0%,
-    var(--sage) 100%
+    var(--navy) 100%
   );
   display: flex;
   align-items: center;
@@ -229,7 +279,7 @@
   transition: all 0.28s ease;
   box-shadow: 
     0 4px 16px rgba(12, 132, 175, 0.25),
-    0 2px 6px rgba(44, 144, 96, 0.2),
+    0 2px 6px rgba(23, 52, 80, 0.2),
     inset 0 1px 0 rgba(255, 255, 255, 0.25);
 }
 
@@ -240,11 +290,11 @@
 }
 
 .serviceCard:hover .serviceIcon {
-  background: linear-gradient(135deg, var(--sage) 0%, var(--teal) 100%);
+  background: linear-gradient(135deg, var(--teal) 0%, var(--gold) 100%);
   color: white;
   transform: scale(1.06);
   box-shadow: 
-    0 6px 24px rgba(44, 144, 96, 0.35),
+    0 6px 24px rgba(12, 132, 175, 0.3),
     0 3px 10px rgba(12, 132, 175, 0.25),
     inset 0 1px 0 rgba(255, 255, 255, 0.35);
 }
@@ -325,14 +375,14 @@
   font-weight: 800;
   width: 18px;
   height: 18px;
-  background: linear-gradient(135deg, var(--sage) 0%, var(--teal) 100%);
+  background: linear-gradient(135deg, var(--teal) 0%, var(--navy) 100%);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 0.68rem;
   box-shadow: 
-    0 2px 6px rgba(44, 144, 96, 0.3),
+    0 2px 6px rgba(12, 132, 175, 0.3),
     inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
@@ -345,8 +395,8 @@
   background: linear-gradient(
     145deg,
     #eff6fb 0%,
-    #e8f4fb 42%,
-    #edf8f2 100%
+    #e8f1f9 42%,
+    #edf2f8 100%
   );
   position: relative;
   scroll-margin-top: calc(var(--full-header-h) + 2rem);
@@ -364,7 +414,7 @@
   background: radial-gradient(
     circle,
     rgba(12, 132, 175, 0.14) 0%,
-    rgba(44, 144, 96, 0.1) 42%,
+    rgba(23, 52, 80, 0.1) 42%,
     rgba(194, 148, 56, 0.08) 62%,
     transparent 70%
   );
@@ -391,7 +441,7 @@
     145deg,
     rgba(255, 255, 255, 0.97) 0%,
     rgba(243, 251, 255, 0.96) 56%,
-    rgba(239, 250, 245, 0.95) 100%
+    rgba(242, 246, 251, 0.95) 100%
   );
   border-radius: var(--radius-xl);
   padding: 3rem;
@@ -413,7 +463,7 @@
   background: linear-gradient(
     90deg,
     var(--teal) 0%,
-    var(--sage) 42%,
+    var(--navy) 42%,
     var(--gold) 100%
   );
 }
@@ -425,7 +475,7 @@
   background: linear-gradient(
     135deg,
     rgba(12, 132, 175, 0.12) 0%,
-    rgba(44, 144, 96, 0.14) 56%,
+    rgba(23, 52, 80, 0.14) 56%,
     rgba(194, 148, 56, 0.16) 100%
   );
   display: flex;
@@ -494,7 +544,7 @@
     145deg,
     rgba(255, 255, 255, 0.9) 0%,
     rgba(238, 249, 255, 0.8) 58%,
-    rgba(240, 250, 245, 0.78) 100%
+    rgba(242, 246, 250, 0.78) 100%
   );
   border-radius: var(--radius-md);
   padding: 2rem;
@@ -507,7 +557,7 @@
 
 .hypnosisBlock:hover {
   transform: translateY(-2px);
-  border-color: rgba(44, 144, 96, 0.32);
+  border-color: rgba(23, 52, 80, 0.28);
   box-shadow: 
     0 10px 26px rgba(12, 132, 175, 0.16),
     inset 0 1px 0 rgba(255, 255, 255, 1);
@@ -546,7 +596,7 @@
   background: linear-gradient(
     135deg,
     rgba(12, 132, 175, 0.18) 0%,
-    rgba(44, 144, 96, 0.16) 100%
+    rgba(23, 52, 80, 0.16) 100%
   );
   border-radius: 50%;
   display: flex;
@@ -560,7 +610,7 @@
   background: linear-gradient(
     135deg,
     rgba(238, 249, 255, 0.92) 0%,
-    rgba(239, 251, 245, 0.9) 100%
+    rgba(241, 246, 252, 0.9) 100%
   );
   border-left: 4px solid var(--teal);
   border-radius: var(--radius-md);
@@ -629,6 +679,69 @@
 
   .ctaSection {
     padding: 3rem 0 4rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .servicesGrid {
+    display: none;
+  }
+
+  .servicesCarouselWrapper {
+    display: block;
+  }
+
+  .servicesCarouselOuter {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    grid-template-areas:
+      'prev track next'
+      '. dots .';
+    align-items: center;
+    gap: 0.35rem 0.4rem;
+  }
+
+  .servicesCarousel {
+    grid-area: track;
+  }
+
+  .carouselCard {
+    flex-basis: 88%;
+  }
+
+  .servicesNavBtn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    border: 0;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--navy);
+    font-size: 1.45rem;
+    line-height: 1;
+    box-shadow: 0 4px 14px rgba(12, 132, 175, 0.18);
+  }
+
+  .servicesNavBtn:first-of-type {
+    grid-area: prev;
+  }
+
+  .servicesNavBtn:last-of-type {
+    grid-area: next;
+  }
+
+  .servicesNavBtn:disabled {
+    opacity: 0.35;
+  }
+
+  .servicesDots {
+    grid-area: dots;
+    display: flex;
+    justify-content: center;
+    gap: 0.45rem;
+    margin-top: 0.3rem;
   }
 }
 

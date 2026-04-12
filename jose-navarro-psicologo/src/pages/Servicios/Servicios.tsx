@@ -1,3 +1,4 @@
+import { useRef, useState } from 'react'
 import { Header } from '../../components/Header/Header'
 import { Footer } from '../../components/Footer/Footer'
 import { CTASection } from '../../components/CTASection/CTASection'
@@ -194,6 +195,10 @@ export function Servicios() {
                 )
               })}
             </div>
+
+            <div className={styles.servicesCarouselWrapper}>
+              <ServicesCarousel />
+            </div>
           </div>
         </section>
 
@@ -263,5 +268,113 @@ export function Servicios() {
 
       <StickyWhatsApp />
     </>
+  )
+}
+
+function ServicesCarousel() {
+  const carouselRef = useRef<HTMLDivElement>(null)
+  const [activeIndex, setActiveIndex] = useState(0)
+
+  function scrollToIndex(index: number) {
+    if (!carouselRef.current) return
+
+    const targetIndex = Math.max(0, Math.min(index, SERVICES.length - 1))
+    const firstCard = carouselRef.current.firstElementChild as HTMLElement | null
+    if (!firstCard) return
+
+    const cardWidth = firstCard.offsetWidth
+    const gap = 14
+    carouselRef.current.scrollTo({
+      left: targetIndex * (cardWidth + gap),
+      behavior: 'smooth',
+    })
+    setActiveIndex(targetIndex)
+  }
+
+  function handleScroll() {
+    if (!carouselRef.current) return
+    const firstCard = carouselRef.current.firstElementChild as HTMLElement | null
+    if (!firstCard) return
+
+    const cardWidth = firstCard.offsetWidth
+    const gap = 14
+    const nextIndex = Math.round(carouselRef.current.scrollLeft / (cardWidth + gap))
+    setActiveIndex(Math.max(0, Math.min(nextIndex, SERVICES.length - 1)))
+  }
+
+  return (
+    <div className={styles.servicesCarouselOuter}>
+      <button
+        type="button"
+        className={styles.servicesNavBtn}
+        onClick={() => scrollToIndex(activeIndex - 1)}
+        disabled={activeIndex === 0}
+        aria-label="Ver servicio anterior"
+      >
+        ‹
+      </button>
+
+      <div
+        ref={carouselRef}
+        className={styles.servicesCarousel}
+        onScroll={handleScroll}
+      >
+        {SERVICES.map((service, idx) => {
+          const accentClass = [
+            styles['serviceCard--azul'],
+            styles['serviceCard--verde'],
+            styles['serviceCard--teal'],
+            styles['serviceCard--dorado'],
+            styles['serviceCard--navy'],
+          ][idx % 5]
+
+          return (
+            <article
+              key={service.id}
+              id={`${service.id}-mobile`}
+              className={`${styles.serviceCard} ${accentClass} ${styles.carouselCard}`}
+            >
+              <div className={styles.serviceIcon}>{service.icon}</div>
+              <h2 className={styles.serviceTitle}>{service.title}</h2>
+              <p className={styles.serviceDescription}>{service.description}</p>
+              <div className={styles.benefitsWrapper}>
+                <h3 className={styles.benefitsTitle}>Beneficios:</h3>
+                <ul className={styles.benefitsList}>
+                  {service.benefits.slice(0, 3).map((benefit, benefitIdx) => (
+                    <li key={benefitIdx} className={styles.benefitItem}>
+                      {benefit}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </article>
+          )
+        })}
+      </div>
+
+      <button
+        type="button"
+        className={styles.servicesNavBtn}
+        onClick={() => scrollToIndex(activeIndex + 1)}
+        disabled={activeIndex === SERVICES.length - 1}
+        aria-label="Ver siguiente servicio"
+      >
+        ›
+      </button>
+
+      <div className={styles.servicesDots} role="tablist" aria-label="Paginación de servicios">
+        {SERVICES.map((service, idx) => (
+          <button
+            key={service.id}
+            type="button"
+            className={`${styles.servicesDot} ${idx === activeIndex ? styles.servicesDotActive : ''}`}
+            onClick={() => scrollToIndex(idx)}
+            aria-label={`Ir al servicio ${idx + 1}`}
+            aria-selected={idx === activeIndex}
+            role="tab"
+          />
+        ))}
+      </div>
+    </div>
   )
 }
