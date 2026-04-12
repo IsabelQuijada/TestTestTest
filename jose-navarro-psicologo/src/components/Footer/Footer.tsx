@@ -54,12 +54,12 @@ const NAV_LINKS = [
 ]
 
 const SERVICE_LINKS = [
-  { label: 'Terapia Individual', href: '/servicios#terapia-individual' },
-  { label: 'Terapia de Pareja', href: '/servicios#terapia-pareja' },
-  { label: 'Terapia Online', href: '/servicios#terapia-online' },
-  { label: 'Ansiedad y Estrés', href: '/servicios#ansiedad-estres' },
-  { label: 'Depresión', href: '/servicios#depresion' },
-  { label: 'Hipnoterapia', href: '/servicios#hipnoterapia' },
+  { label: 'Terapia Individual', href: '#servicios' },
+  { label: 'Terapia de Pareja', href: '#servicios' },
+  { label: 'Terapia Online', href: '#servicios' },
+  { label: 'Ansiedad y Estrés', href: '#servicios' },
+  { label: 'Depresión', href: '#servicios' },
+  { label: 'Hipnoterapia', href: '#servicios' },
 ]
 
 

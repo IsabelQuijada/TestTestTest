@@ -640,6 +640,26 @@
 }
 
 /* ══════════════════════════════════════════════════════════════
+   Wave Footer
+   ══════════════════════════════════════════════════════════════ */
+
+.waveFooter {
+  position: relative;
+  width: 100%;
+  height: 90px;
+  overflow: hidden;
+  line-height: 0;
+  margin-top: auto;
+  background: transparent;
+}
+
+.waveFooter svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* ══════════════════════════════════════════════════════════════
    Responsive Adjustments
    ══════════════════════════════════════════════════════════════ */
 

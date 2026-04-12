@@ -264,6 +264,12 @@ export function Servicios() {
         />
       </main>
 
+      <div className={styles.waveFooter} aria-hidden="true">
+        <svg viewBox="0 0 1440 90" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0,40 C360,75 720,10 1080,45 C1260,62 1380,25 1440,38 L1440,90 L0,90 Z" fill="#0c2137" />
+        </svg>
+      </div>
+
       <Footer />
 
       <StickyWhatsApp />
