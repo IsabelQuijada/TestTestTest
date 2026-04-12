@@ -42,29 +42,10 @@
 
 /* ── Desktop CTA ── */
 .ctaBtn {
-  display: inline-flex;
-  align-items: center;
-  background: var(--navy);
-  color: #fff;
-  text-decoration: none;
-  font-family: 'Raleway', sans-serif;
-  font-size: .82rem;
-  font-weight: 700;
-  letter-spacing: .07em;
-  text-transform: uppercase;
-  padding: .6rem 1.4rem;
+  font-size: .78rem;
+  padding: .62rem 1.25rem;
   border-radius: .5rem;
   white-space: nowrap;
-  transition: background .22s, box-shadow .22s, transform .18s;
-  box-shadow: 0 2px 12px rgba(23, 52, 80, .18);
-}
-
-.ctaBtn:hover,
-.ctaBtn:focus-visible {
-  background: var(--teal-dk);
-  box-shadow: 0 6px 24px rgba(12, 132, 175, .28);
-  transform: translateY(-1px);
-  outline: none;
 }
 
 /* ── Hamburger ── */
@@ -151,26 +132,13 @@
 }
 
 .mobileCta {
-  display: block;
   margin: .5rem 1rem 0;
-  padding: .7rem 1rem;
-  background: var(--navy);
-  color: #fff;
-  font-family: 'Raleway', sans-serif;
-  font-size: .82rem;
-  font-weight: 700;
-  letter-spacing: .07em;
-  text-transform: uppercase;
-  text-align: center;
-  text-decoration: none;
+  width: calc(100% - 2rem);
+  justify-content: center;
+  font-size: .8rem;
+  padding: .72rem 1rem;
+  letter-spacing: .06em;
   border-radius: .5rem;
-  transition: background .2s;
-}
-
-.mobileCta:hover,
-.mobileCta:focus-visible {
-  background: var(--teal-dk);
-  outline: none;
 }
 
 /* ── Responsive ── */

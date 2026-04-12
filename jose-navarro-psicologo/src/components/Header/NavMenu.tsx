@@ -1,7 +1,8 @@
 import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
-import { PrimaryCTA } from '../PrimaryCTA/PrimaryCTA'
 import styles from './NavMenu.module.css'
+import { WA_URL } from '../../constants/contact'
+import { PrimaryCTA } from '../PrimaryCTA/PrimaryCTA'
 
 export interface NavItem {
   label: string
@@ -10,10 +11,12 @@ export interface NavItem {
 
 const NAV_ITEMS: NavItem[] = [
   { label: 'Inicio',          href: '/' },
-  { label: 'Servicios',       href: '/servicios' },
+  { label: 'Servicios',       href: '#servicios' },
   { label: 'Acerca de mí',    href: '/acerca-de-mi' },
   { label: 'Contacto',        href: '/contacto' },
 ]
+
+const CTA_URL = WA_URL
 
 export function NavMenu() {
   const [open, setOpen] = useState(false)
@@ -66,8 +69,12 @@ export function NavMenu() {
       </nav>
 
       {/* Desktop CTA */}
-      <PrimaryCTA className={styles.ctaBtn}>
-        Agendar primera consulta
+      <PrimaryCTA
+        href={CTA_URL}
+        className={styles.ctaBtn}
+        aria-label="Reservar primera consulta vía WhatsApp"
+      >
+        Reservar cita
       </PrimaryCTA>
 
       {/* Hamburger button — only visible on mobile */}
@@ -119,11 +126,12 @@ export function NavMenu() {
           </ul>
         </nav>
         <PrimaryCTA
+          href={CTA_URL}
           className={styles.mobileCta}
           tabIndex={open ? 0 : -1}
           onClick={() => setOpen(false)}
         >
-          Agendar primera consulta
+          Reservar cita
         </PrimaryCTA>
       </div>
     </div>
