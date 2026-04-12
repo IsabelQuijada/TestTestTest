@@ -1,5 +1,5 @@
+import { PrimaryCTA } from '../PrimaryCTA/PrimaryCTA'
 import styles from './HeroRibbon.module.css'
-import { WA_URL } from '../../constants/contact'
 
 export function HeroRibbon() {
   return (
@@ -9,14 +9,9 @@ export function HeroRibbon() {
           Da el primer paso hacia tu bienestar — pide información sin compromiso.
         </p>
         <div className={styles.actions}>
-          <a
-            href={WA_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.btnPrimary}
-          >
-         Solicita información
-          </a>
+          <PrimaryCTA>
+            Solicitar información
+          </PrimaryCTA>
         </div>
       </div>
     </div>

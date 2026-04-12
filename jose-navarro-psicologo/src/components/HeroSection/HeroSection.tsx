@@ -1,4 +1,4 @@
-import { CTAButton } from './CTAButton/CTAButton'
+import { PrimaryCTA } from '../PrimaryCTA/PrimaryCTA'
 import styles from './HeroSection.module.css'
 
 export function HeroSection() {
@@ -22,7 +22,7 @@ export function HeroSection() {
 
       {/* CTA principal */}
       <div className={styles.ctaWrap}>
-        <CTAButton>Reserva tu consulta</CTAButton>
+        <PrimaryCTA>Agendar primera consulta</PrimaryCTA>
       </div>
 
     </div>

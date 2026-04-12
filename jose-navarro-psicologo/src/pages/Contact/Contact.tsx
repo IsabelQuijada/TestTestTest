@@ -2,6 +2,7 @@ import { Header } from '../../components/Header/Header'
 import { Footer } from '../../components/Footer/Footer'
 import { OrbsBackground } from '../../components/OrbsBackground/OrbsBackground'
 import { CTAButton } from '../../components/HeroSection/CTAButton/CTAButton'
+import { PrimaryCTA } from '../../components/PrimaryCTA/PrimaryCTA'
 import { PHONE_DISPLAY, PHONE_TEL } from '../../constants/contact'
 import styles from './Contact.module.css'
 import React, { useRef, useState } from 'react'
@@ -151,7 +152,7 @@ export function Contact() {
 
           {/* CTA */}
           <div className={styles.finalCta}>
-            <CTAButton className={styles.finalCtaBtn}>Reservar cita</CTAButton>
+            <PrimaryCTA>Agendar primera consulta</PrimaryCTA>
           </div>
         </div>
       </main>

@@ -48,17 +48,18 @@ function FacebookIcon() {
 }
 
 const NAV_LINKS = [
-  { label: 'Servicios',  href: '#servicios' },
-  { label: 'Acerca de mí', href: '/#acerca-de-mi' }, // Ahora siempre navega a la sección
+  { label: 'Servicios',  href: '/servicios' },
+  { label: 'Acerca de mí', href: '/#acerca-de-mi' },
   { label: 'Contacto',   href: '/contacto' },
 ]
 
 const SERVICE_LINKS = [
-  { label: 'Terapia Individual' },
-  { label: 'Terapia de Pareja' },
-  { label: 'Terapia Online' },
-  { label: 'Ansiedad y Estrés' },
-  { label: 'Depresión' },
+  { label: 'Terapia Individual', href: '/servicios#terapia-individual' },
+  { label: 'Terapia de Pareja', href: '/servicios#terapia-pareja' },
+  { label: 'Terapia Online', href: '/servicios#terapia-online' },
+  { label: 'Ansiedad y Estrés', href: '/servicios#ansiedad-estres' },
+  { label: 'Depresión', href: '/servicios#depresion' },
+  { label: 'Hipnoterapia', href: '/servicios#hipnoterapia' },
 ]
 
 
@@ -100,9 +101,9 @@ export function Footer() {
         <nav className={`${styles.col} ${styles.hideOnMobile}`} aria-label="Servicios">
           <h3 className={styles.colTitle}>Servicios</h3>
           <ul className={styles.linkList} role="list">
-            {SERVICE_LINKS.map(({ label }) => (
+            {SERVICE_LINKS.map(({ label, href }) => (
               <li key={label}>
-                <a href="#servicios" className={styles.link}>{label}</a>
+                <a href={href} className={styles.link}>{label}</a>
               </li>
             ))}
           </ul>

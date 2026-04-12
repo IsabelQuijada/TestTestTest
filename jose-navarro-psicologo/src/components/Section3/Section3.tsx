@@ -1,4 +1,5 @@
 import joseNavarro from '../../assets/JoseNavarro.jpeg'
+import { PrimaryCTA } from '../PrimaryCTA/PrimaryCTA'
 import styles from './Section3.module.css'
 import { WA_URL } from '../../constants/contact'
 
@@ -123,13 +124,9 @@ export function Section3() {
             "Acompañarte en tu proceso de cambio no es solo mi trabajo — es mi vocación."
           </blockquote>
 
-          <a
-            href="#/acerca-de-mi"
-            className={styles.ctaBtn}
-            aria-label="Conoce más sobre mí"
-          >
+          <PrimaryCTA href="/acerca-de-mi">
             Acerca de mí
-          </a>
+          </PrimaryCTA>
         </div>
 
         {/* ── RIGHT: Bio + values + steps + CTA ── */}
@@ -221,9 +218,9 @@ export function Section3() {
           ))}
         </div>
         <div className={styles.stepsCta}>
-          <a href={WA_URL} target="_blank" rel="noopener noreferrer" className={styles.stepsCtaBtn}>
-            Reserva tu Consulta
-          </a>
+          <PrimaryCTA>
+            Agendar primera consulta
+          </PrimaryCTA>
         </div>
       </div>
 

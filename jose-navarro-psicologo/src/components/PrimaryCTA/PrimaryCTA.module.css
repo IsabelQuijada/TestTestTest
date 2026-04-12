@@ -1,0 +1,86 @@
+/* ══════════════════════════════════════════════════════════════
+   Primary CTA Component
+   Botón principal estandarizado para todo el sitio
+   ══════════════════════════════════════════════════════════════ */
+
+.primaryCta {
+  /* Tipografía */
+  font-size: 0.9375rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #fff;
+  
+  /* Layout */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.9rem 2.5rem;
+  
+  /* Fondo con gradiente elegante y profesional */
+  background: linear-gradient(135deg, #0c84af 0%, #2c9060 100%);
+  
+  /* Borde y forma */
+  border: none;
+  border-radius: 16px;
+  
+  /* Sombra sutil y sofisticada */
+  box-shadow: 
+    0 2px 12px rgba(12, 132, 175, 0.18),
+    0 6px 20px rgba(44, 144, 96, 0.12);
+  
+  /* Interacción */
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  
+  /* Prevenir selección de texto */
+  user-select: none;
+  -webkit-user-select: none;
+  
+  /* Alineación */
+  white-space: nowrap;
+}
+
+/* ── Hover State ──────────────────────────────────────────── */
+.primaryCta:hover {
+  /* Aclarar gradiente sutilmente */
+  background: linear-gradient(135deg, #0e9ac7 0%, #34a570 100%);
+  
+  /* Elevar sombra con elegancia */
+  box-shadow: 
+    0 4px 16px rgba(12, 132, 175, 0.24),
+    0 8px 28px rgba(44, 144, 96, 0.18);
+  
+  /* Elevar ligeramente */
+  transform: translateY(-2px);
+}
+
+/* ── Active State ─────────────────────────────────────────── */
+.primaryCta:active {
+  transform: translateY(0);
+  box-shadow: 
+    0 1px 6px rgba(12, 132, 175, 0.18),
+    0 3px 10px rgba(44, 144, 96, 0.12);
+}
+
+/* ── Focus State (Accesibilidad) ──────────────────────────── */
+.primaryCta:focus-visible {
+  outline: 2px solid #0c84af;
+  outline-offset: 3px;
+}
+
+/* ── Responsive ───────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .primaryCta {
+    font-size: 0.875rem;
+    padding: 0.85rem 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .primaryCta {
+    font-size: 0.8125rem;
+    padding: 0.8rem 1.75rem;
+  }
+}

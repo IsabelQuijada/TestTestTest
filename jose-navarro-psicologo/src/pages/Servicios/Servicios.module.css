@@ -1,0 +1,531 @@
+/* ══════════════════════════════════════════════════════════════
+   Servicios Page
+   ══════════════════════════════════════════════════════════════ */
+
+.serviciosPage {
+  position: relative;
+  min-height: 100vh;
+  padding-top: var(--full-header-h);
+  background: var(--bg);
+}
+
+/* ── Container ──────────────────────────────────────────────── */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   Hero Section
+   ══════════════════════════════════════════════════════════════ */
+
+.heroSection {
+  position: relative;
+  padding: 4rem 0 3rem;
+  text-align: center;
+  background: linear-gradient(
+    135deg,
+    rgba(12, 132, 175, 0.03) 0%,
+    rgba(44, 144, 96, 0.05) 100%
+  );
+}
+
+.heroSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(
+    circle,
+    rgba(12, 132, 175, 0.08) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 1;
+}
+
+.heroTitle {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  color: var(--navy);
+  margin: 0 0 1rem;
+  line-height: 1.2;
+}
+
+.heroHighlight {
+  color: var(--teal);
+  display: inline-block;
+  position: relative;
+}
+
+.heroSubtitle {
+  font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+  color: var(--muted);
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   Services Section
+   ══════════════════════════════════════════════════════════════ */
+
+.servicesSection {
+  padding: 4rem 0;
+}
+
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+  .servicesGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Service Card ───────────────────────────────────────────── */
+
+.serviceCard {
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  box-shadow: 
+    0 1px 3px rgba(7, 18, 36, 0.04),
+    0 4px 12px rgba(7, 18, 36, 0.06);
+  transition: all 0.3s ease;
+  border: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+  scroll-margin-top: calc(var(--full-header-h) + 2rem);
+}
+
+.serviceCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 0;
+  background: linear-gradient(180deg, var(--teal) 0%, var(--sage) 100%);
+  transition: height 0.3s ease;
+}
+
+.serviceCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 
+    0 4px 12px rgba(7, 18, 36, 0.08),
+    0 12px 32px rgba(12, 132, 175, 0.12);
+}
+
+.serviceCard:hover::before {
+  height: 100%;
+}
+
+.serviceIcon {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--teal-lt) 0%, var(--sage-lt) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  color: var(--teal);
+  transition: all 0.3s ease;
+}
+
+.serviceCard:hover .serviceIcon {
+  background: linear-gradient(135deg, var(--teal) 0%, var(--sage) 100%);
+  color: white;
+  transform: scale(1.05);
+}
+
+.serviceTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin: 0 0 1rem;
+  line-height: 1.3;
+}
+
+.serviceDescription {
+  font-size: 1rem;
+  color: var(--text);
+  line-height: 1.6;
+  margin: 0 0 1.5rem;
+}
+
+/* ── Benefits ───────────────────────────────────────────────── */
+
+.benefitsWrapper {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.benefitsTitle {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--teal);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0 0 1rem;
+}
+
+.benefitsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.benefitItem {
+  font-size: 0.9375rem;
+  color: var(--muted);
+  line-height: 1.6;
+  padding-left: 1.5rem;
+  position: relative;
+  margin-bottom: 0.5rem;
+}
+
+.benefitItem::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--sage);
+  font-weight: 700;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   Hipnoterapia Special Section
+   ══════════════════════════════════════════════════════════════ */
+
+.hypnosisSection {
+  padding: 4rem 0;
+  background: linear-gradient(
+    135deg,
+    rgba(194, 148, 56, 0.03) 0%,
+    rgba(12, 132, 175, 0.04) 100%
+  );
+  position: relative;
+  scroll-margin-top: calc(var(--full-header-h) + 2rem);
+}
+
+.hypnosisSection::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(
+    circle,
+    rgba(194, 148, 56, 0.06) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.hypnosisCard {
+  position: relative;
+  z-index: 1;
+  background: var(--surface);
+  border-radius: var(--radius-xl);
+  padding: 3rem;
+  box-shadow: 
+    0 4px 16px rgba(7, 18, 36, 0.06),
+    0 12px 40px rgba(194, 148, 56, 0.08);
+  border: 2px solid rgba(194, 148, 56, 0.2);
+  overflow: hidden;
+}
+
+.hypnosisCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: linear-gradient(
+    90deg,
+    var(--gold) 0%,
+    var(--teal) 50%,
+    var(--gold) 100%
+  );
+}
+
+.hypnosisIcon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold-lt) 0%, rgba(12, 132, 175, 0.08) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 2rem;
+  color: var(--gold);
+  animation: pulse 3s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.9;
+  }
+}
+
+.hypnosisContent {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.hypnosisTitle {
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 700;
+  color: var(--navy);
+  text-align: center;
+  margin: 0 0 0.5rem;
+  line-height: 1.2;
+}
+
+.hypnosisSubtitle {
+  font-size: clamp(1.1rem, 2vw, 1.25rem);
+  color: var(--gold);
+  text-align: center;
+  margin: 0 0 2rem;
+  font-weight: 500;
+}
+
+.hypnosisDescription {
+  font-size: 1.0625rem;
+  color: var(--text);
+  line-height: 1.7;
+  margin: 0 0 2.5rem;
+  text-align: center;
+}
+
+/* ── Hypnosis Grid ──────────────────────────────────────────── */
+
+.hypnosisGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.hypnosisBlock {
+  background: linear-gradient(
+    135deg,
+    rgba(194, 148, 56, 0.03) 0%,
+    rgba(12, 132, 175, 0.02) 100%
+  );
+  border-radius: var(--radius-md);
+  padding: 2rem;
+  border: 1px solid rgba(194, 148, 56, 0.15);
+}
+
+.hypnosisBlockTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin: 0 0 1.25rem;
+}
+
+.hypnosisList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.hypnosisList li {
+  font-size: 0.9375rem;
+  color: var(--text);
+  line-height: 1.6;
+  padding-left: 1.75rem;
+  position: relative;
+  margin-bottom: 0.75rem;
+}
+
+.hypnosisList li::before {
+  content: '◆';
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+  font-size: 0.75rem;
+}
+
+/* ── Hypnosis Note ──────────────────────────────────────────── */
+
+.hypnosisNote {
+  background: rgba(194, 148, 56, 0.06);
+  border-left: 4px solid var(--gold);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  margin-top: 2rem;
+}
+
+.hypnosisNote p {
+  font-size: 0.9375rem;
+  color: var(--text);
+  line-height: 1.7;
+  margin: 0;
+}
+
+.hypnosisNote strong {
+  color: var(--navy);
+  font-weight: 600;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   CTA Section
+   ══════════════════════════════════════════════════════════════ */
+
+.ctaSection {
+  padding: 4rem 0 5rem;
+}
+
+.ctaCard {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--teal-dk) 100%);
+  border-radius: var(--radius-xl);
+  padding: 3.5rem 2rem;
+  text-align: center;
+  box-shadow: 
+    0 8px 24px rgba(7, 18, 36, 0.12),
+    0 16px 48px rgba(12, 132, 175, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.ctaCard::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -30%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.08) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.ctaTitle {
+  font-size: clamp(1.75rem, 3.5vw, 2.25rem);
+  font-weight: 700;
+  color: white;
+  margin: 0 0 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.ctaText {
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  line-height: 1.6;
+  position: relative;
+  z-index: 1;
+}
+
+.ctaButton {
+  position: relative;
+  z-index: 1;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   Sticky WhatsApp Button
+   ══════════════════════════════════════════════════════════════ */
+
+.stickyWa {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 1000;
+}
+
+@media (max-width: 768px) {
+  .stickyWa {
+    bottom: 1.5rem;
+    right: 1.5rem;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   Responsive Adjustments
+   ══════════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  .serviciosPage {
+    padding-top: calc(var(--full-header-h) - 0.5rem);
+  }
+
+  .heroSection {
+    padding: 3rem 0 2rem;
+  }
+
+  .servicesSection {
+    padding: 3rem 0;
+  }
+
+  .serviceCard {
+    padding: 2rem;
+  }
+
+  .hypnosisSection {
+    padding: 3rem 0;
+  }
+
+  .hypnosisCard {
+    padding: 2rem 1.5rem;
+  }
+
+  .hypnosisGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .ctaSection {
+    padding: 3rem 0 4rem;
+  }
+
+  .ctaCard {
+    padding: 2.5rem 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 1rem;
+  }
+
+  .serviceCard {
+    padding: 1.5rem;
+  }
+
+  .hypnosisCard {
+    padding: 1.5rem 1rem;
+  }
+
+  .hypnosisBlock {
+    padding: 1.5rem;
+  }
+}
