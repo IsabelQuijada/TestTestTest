@@ -1,4 +1,5 @@
 import joseNavarro from '../../assets/JoseNavarro.jpeg'
+import { Link } from 'react-router-dom'
 import { PrimaryCTA } from '../PrimaryCTA/PrimaryCTA'
 import styles from './Section3.module.css'
 import { WA_URL } from '../../constants/contact'
@@ -124,9 +125,9 @@ export function Section3() {
             "Acompañarte en tu proceso de cambio no es solo mi trabajo — es mi vocación."
           </blockquote>
 
-          <PrimaryCTA href="/acerca-de-mi">
+          <Link to="/acerca-de-mi" className={styles.aboutMeButton}>
             Acerca de mí
-          </PrimaryCTA>
+          </Link>
         </div>
 
         {/* ── RIGHT: Bio + values + steps + CTA ── */}
