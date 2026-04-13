@@ -32,6 +32,15 @@ export function AboutMe() {
       <Header />
 
       <main className={styles.aboutPage}>
+        {/* Hero Section - Tagline */}
+        <section className={styles.heroSection}>
+          <div className={styles.heroContent}>
+            <p className={styles.heroTagline}>
+              Acompañándote en tu proceso de transformación personal
+            </p>
+          </div>
+        </section>
+
         {/* Introduction Section - Integrated */}
         <section className={styles.introSection}>
           <div className={styles.container}>

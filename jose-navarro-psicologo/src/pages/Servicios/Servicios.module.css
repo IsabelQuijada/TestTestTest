@@ -398,7 +398,7 @@
   font-weight: 800;
   width: 18px;
   height: 18px;
-  background: linear-gradient(135deg, var(--teal) 0%, var(--navy) 100%);
+  background: var(--card-accent);
   border-radius: 50%;
   display: flex;
   align-items: center;

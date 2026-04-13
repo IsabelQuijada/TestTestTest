@@ -7,6 +7,57 @@
   padding-top: var(--full-header-h);
 }
 
+/* ── Hero Section - Tagline ──────────────────────────────── */
+.heroSection {
+  position: relative;
+  padding: 2rem 1.5rem 2.2rem;
+  text-align: center;
+  background: linear-gradient(
+    140deg,
+    rgba(7, 63, 102, 0.08) 0%,
+    rgba(12, 132, 175, 0.10) 52%,
+    rgba(194, 148, 56, 0.06) 100%
+  );
+  overflow: hidden;
+  border-bottom: 1px solid rgba(12, 132, 175, 0.08);
+}
+
+.heroSection::before {
+  content: '';
+  position: absolute;
+  top: -30%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(
+    circle,
+    rgba(12, 132, 175, 0.12) 0%,
+    rgba(23, 52, 80, 0.06) 45%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 1;
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+.heroTagline {
+  font-size: clamp(1.15rem, 3vw, 1.5rem);
+  font-weight: 600;
+  color: #173450;
+  margin: 0;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+  font-style: italic;
+  opacity: 0.94;
+}
+
 /* ── Introduction Section - Warm & Inviting ──────────────── */
 .introSection {
   padding: 1.5rem 0.5rem 2rem 0.5rem;
@@ -255,10 +306,9 @@
   font-size: clamp(2rem, 3.5vw, 2.5rem);
   font-weight: 300;
   color: var(--gold);
-  opacity: 1;
+  opacity: 0.85;
   line-height: 1;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.03em;
 }
 
 .experienceContent {
